@@ -1,8 +1,9 @@
-import React, { useRef, useState,  } from "react";
+import React, { useRef, useState } from "react";
 import "./Navbar.css";
 import { RiSofaLine } from "react-icons/ri";
 import { IoCartOutline } from "react-icons/io5";
 import { IoIosArrowDropdown } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [menu, setMenu] = useState("shop");
@@ -15,8 +16,8 @@ const Navbar = () => {
 
   return (
     <div className="navbar-container">
-      <div className='navbar'>
-        <a
+      <div className="navbar">
+        <Link
           to="/"
           onClick={() => {
             setMenu("shop");
@@ -27,36 +28,37 @@ const Navbar = () => {
             <RiSofaLine />
           </div>
           <p>FURNISH</p>
-        </a>
+        </Link>
         <div>
           <IoIosArrowDropdown
             onClick={dropdown_toggle}
             className="nav-dropdown nav-dorpdown-icon"
           />
         </div>
+
         <ul ref={menuRef} className="nav-menu">
           <li
             onClick={() => {
               setMenu("shop");
             }}
           >
-            <a href="#">Shop</a>
+            <Link to="/">Shop</Link>
             {menu === "shop" ? <hr /> : <></>}
           </li>
           <li
             onClick={() => {
-              setMenu("mens");
+              setMenu("livingroom");
             }}
           >
-            <a href="#">Living Room</a>
+            <Link to="/livingroom">Living Room</Link>
             {menu === "livingroom" ? <hr /> : <></>}
           </li>
           <li
             onClick={() => {
-              setMenu("womens");
+              setMenu("bedroom");
             }}
           >
-            <a href="#">Bedroom</a>
+            <Link to="bedroom">Bedroom</Link>
             {menu === "bedroom" ? <hr /> : <></>}
           </li>
           <li
@@ -64,7 +66,7 @@ const Navbar = () => {
               setMenu("kids");
             }}
           >
-            <a href="#">Dining</a>
+            <Link to="/dining">Dining</Link>
             {menu === "dining" ? <hr /> : <></>}
           </li>
         </ul>
