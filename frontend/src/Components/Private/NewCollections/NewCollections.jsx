@@ -1,6 +1,6 @@
 import React from 'react'
 import './NewCollections.css'
-import { new_collections } from '../../../Data/Data'
+import { new_collections } from '../../../Data/Da'
 import Item from '../../Shared/Item/Item'
 
 const NewCollections = () => {
