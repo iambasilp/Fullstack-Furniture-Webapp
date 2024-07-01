@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./Hero.css";
+import "./Home.css";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import hero_image from "../../../assets/Hero/hero_image.png";
 import ScrollReveal from "scrollreveal";
