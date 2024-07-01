@@ -15,7 +15,7 @@
     display: flex;
     align-items: center;
     font-size: 45px;
-    color: blue;
+    color: darkblue;
 }
 .nav-logo p{
     color: #171717;
@@ -45,7 +45,7 @@
     width: 100%;
     height: 3px;
     border-radius: 10px;
-    background: blue;
+    background: darkblue;
     animation: slide 0.3s linear;
 }
 @keyframes slide {
@@ -80,7 +80,7 @@
     transition: all ease 0.3s;
 }
 .nav-login-cart button:hover{
-    background: blue;
+    background: darkblue;
     color: white;
 }
 .nav-login-cart button:active{
@@ -100,7 +100,7 @@
     margin-top: -30px;
     margin-left: -40px;
     font-size: 14px;
-    background: blue;
+    background: darkblue;
     color: white;
 }
 .nav-dorpdown-icon{
