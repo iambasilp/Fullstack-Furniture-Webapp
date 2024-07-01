@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import Pathway from '../../Components/Private/Pathway/Pathway';
 import ProductDisplay from '../../Components/Private/ProductDisplay/ProductDisplay';
 import DescriptionBox from '../../Components/Private/ DescriptionBox/ DescriptionBox';
+import RelatedProducts from '../../Components/Private/ RelatedProducts/RelatedProducts';
 
 
 const Product = () => {
@@ -15,6 +16,7 @@ const Product = () => {
       <Pathway product={product}/>
       <ProductDisplay product={product}/>
       <DescriptionBox />
+      <RelatedProducts />
     </div>
   )
 }
