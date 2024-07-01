@@ -3,6 +3,7 @@ import Navbar from "./Components/Shared/Navbar/Navbar";
 import Shop from "./Pages/Shop/Shop";
 import Footer from "./Components/Shared/Footer/Footer";
 import ShopCategory from "./Pages/ShopCategory/ShopCategory";
+import Product from "./Pages/Product/Product";
 
 const App = () => {
   return (
@@ -20,6 +21,9 @@ const App = () => {
             element={<ShopCategory category="bedroom" />}
           />
           <Route path="/dining" element={<ShopCategory category="dining" />} />
+          <Route path="/product" element={<Product/>}>
+          <Route path=':productId' element={<Product/>}/>
+        </Route>
         </Routes>
         <Footer />
       </BrowserRouter>

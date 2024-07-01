@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Item.css";
 
 const Item = (props) => {
@@ -6,7 +7,7 @@ const Item = (props) => {
     <div className="item">
       <div className="item-img">
         <a href="#">
-          <img onClick={window.scrollTo(0, 0)} src={props.image} alt="" />
+        <Link to={`/product/${props.id}`}><img onClick={window.scrollTo(0,0)} src={props.image} alt="" /></Link>
         </a>
       </div>
 
