@@ -41,12 +41,11 @@
     padding-bottom: 6px;
     background: #fbfbfb;
     border: 1px solid #ebebeb;
-    border-radius: 10px;
     cursor: pointer;
     transition: all ease 0.3s;
 }
 .footer-icons-container:hover{
-    background: blue;
+    background: darkblue;
     color: white;
 }
 .footer-icons-container:hover .footer-icon{
@@ -65,6 +64,21 @@
     margin-bottom: 30px;
     color: #1a1a1a;
     font-size: 16px;
+}
+.footer-copyright-content{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    margin-bottom: 30px;
+    color: #1a1a1a;
+    font-size: 16px;
+}
+.footer-logo-bottom-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .footer-copyright hr{
     width: 80%;

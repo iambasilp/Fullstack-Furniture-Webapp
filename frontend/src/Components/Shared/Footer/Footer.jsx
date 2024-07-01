@@ -43,7 +43,12 @@ const Footer = () => {
       </div>
       <div className="footer-copyright">
         <hr />
-        <p>Copyright @ 2024 - All Right Reserved.</p>
+        <div className="footer-copyright-content">
+          <div className="footer-logo-bottom-icon">
+            <RiSofaLine  size={20}/>
+          </div>
+          <p>Copyright @ 2024 - All Right Reserved.</p>
+        </div>
       </div>
     </div>
   );
