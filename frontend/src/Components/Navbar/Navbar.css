@@ -42,17 +42,30 @@
 }
 .nav-menu hr{
     border: none;
-    width: 80%;
+    width: 100%;
     height: 3px;
     border-radius: 10px;
     background: blue;
+    animation: slide 0.3s linear;
+}
+@keyframes slide {
+    from{
+        width: 0;
+    }
+    to{
+        width: 100%;
+    }
+    
 }
 .nav-login-cart{
     display: flex;
     align-items: center;
     gap: 30px;
 }
-
+.cart-icon{
+    display: flex;
+    align-items: center;
+}
 .nav-login-cart button{
     width: 130px;
     height: 45px;
