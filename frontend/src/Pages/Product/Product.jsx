@@ -3,6 +3,7 @@ import { ShopContext } from '../../Context/ShopContext';
 import { useParams } from 'react-router-dom';
 import Pathway from '../../Components/Private/Pathway/Pathway';
 import ProductDisplay from '../../Components/Private/ProductDisplay/ProductDisplay';
+import DescriptionBox from '../../Components/Private/ DescriptionBox/ DescriptionBox';
 
 
 const Product = () => {
@@ -13,6 +14,7 @@ const Product = () => {
     <div>
       <Pathway product={product}/>
       <ProductDisplay product={product}/>
+      <DescriptionBox />
     </div>
   )
 }
