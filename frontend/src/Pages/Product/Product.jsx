@@ -3,8 +3,8 @@ import { ShopContext } from '../../Context/ShopContext';
 import { useParams } from 'react-router-dom';
 import Pathway from '../../Components/Private/Pathway/Pathway';
 import ProductDisplay from '../../Components/Private/ProductDisplay/ProductDisplay';
-import DescriptionBox from '../../Components/Private/ DescriptionBox/ DescriptionBox';
-import RelatedProducts from '../../Components/Private/ RelatedProducts/RelatedProducts';
+import DescriptionBox from '../../Components/Private/DescriptionBox/DescriptionBox';
+import RelatedProducts from '../../Components/Private/RelatedProducts/RelatedProducts';
 
 
 const Product = () => {
