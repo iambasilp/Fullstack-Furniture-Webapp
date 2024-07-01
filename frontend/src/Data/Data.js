@@ -42,7 +42,7 @@ export let data_product = [
     {
       id: 35,
       name: "Classic Armchair",
-      image: "https://cdn.pixabay.com/photo/2023/09/25/17/12/armchair-8275671_1280.jpg",
+      image: "https://img.freepik.com/free-photo/view-3d-chair-lawyer-s-day-celebration_23-2151023391.jpg?t=st=1719822780~exp=1719826380~hmac=fc56eeb4000da0e94632a37f08ac11a8a4a7eb53d4e5a4cc5e19197e11f5cc1e&w=826",
       new_price: 1999,
       old_price: 2499,
     },
