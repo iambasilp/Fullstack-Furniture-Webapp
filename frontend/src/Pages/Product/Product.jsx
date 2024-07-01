@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { ShopContext } from '../../Context/ShopContext';
 import { useParams } from 'react-router-dom';
 import Pathway from '../../Components/Private/Pathway/Pathway';
+import ProductDisplay from '../../Components/Private/ProductDisplay/ProductDisplay';
 
 
 const Product = () => {
@@ -11,6 +12,7 @@ const Product = () => {
   return (
     <div>
       <Pathway product={product}/>
+      <ProductDisplay product={product}/>
     </div>
   )
 }
