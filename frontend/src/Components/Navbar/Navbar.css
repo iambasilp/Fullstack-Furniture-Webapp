@@ -113,7 +113,7 @@
         display: block;
         font-size: 30px;
         transition: 0.5s;
-        transform: rotate(0deg);
+        transform: rotate(-90deg);
     }
     
     .nav-menu{
@@ -128,9 +128,19 @@
     }
     .nav-menu-visible{
         display: flex;
+        flex-direction: column;
+        height: 25vh;
+        background-color: blue;
+        color: white;
+        top: 60px;
+        border-radius: 0 0 20px 20px;
+        margin-top: 20px;
+    }
+    .nav-menu-visible.nav-menu hr{
+        background: white;
     }
    .nav-dropdown.nav-dorpdown-icon.open{
-        transform: rotate(180deg);
+        transform: rotate(0deg);
     }
     .nav-cart-count{
         margin-left: -25px;
@@ -149,8 +159,18 @@
         font-size: 18px;
     }
     .nav-menu-visible{
-        height: 70px;
+        height: 25vh;
+        background-color: blue;
+        color: white;
         top: 60px;
+        border-radius: 0 0 20px 20px;
+    }
+    .nav-menu-visible.nav-menu{
+        display: flex;
+        flex-direction: column;
+    }
+    .nav-menu-visible.nav-menu hr{
+        background: white;
     }
     .nav-login-cart{
         transform: scale(0.8);
