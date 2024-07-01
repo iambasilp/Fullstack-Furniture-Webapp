@@ -63,10 +63,10 @@ const Navbar = () => {
           </li>
           <li
             onClick={() => {
-              setMenu("kids");
+              setMenu("dining");
             }}
           >
-            <Link to="/dining">Dining</Link>
+            <Link to="dining">Dining</Link>
             {menu === "dining" ? <hr /> : <></>}
           </li>
         </ul>
