@@ -71,9 +71,9 @@ const Navbar = () => {
           </li>
         </ul>
         <div className="nav-login-cart">
-          <a to="/login">
+          <Link to="/login">
             <button>Login</button>
-          </a>
+          </Link>
           <div className="cart-icon">
             <IoCartOutline />
           </div>
