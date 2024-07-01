@@ -5,9 +5,7 @@
   z-index: 100;
   transition: 0.4s;
 }
-.navbar-container.active {
-  background:red;
-}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -187,7 +185,7 @@
   }
   .nav-menu-visible {
     height: 25vh;
-    background-color: blue;
+    background-color: rgb(4, 4, 136);
     color: white;
     top: 60px;
     border-radius: 0 0 20px 20px;
