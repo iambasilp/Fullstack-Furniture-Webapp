@@ -34,7 +34,7 @@ console.log(AllProductData);
         <Pathway product={productInfo} />
         <ProductDisplay product={productInfo} />
         <DescriptionBox product={productInfo} />
-        <RelatedProducts product={productInfo} />
+        <RelatedProducts product={productInfo.relatedProducts} />
       </>
     </div>
   );
