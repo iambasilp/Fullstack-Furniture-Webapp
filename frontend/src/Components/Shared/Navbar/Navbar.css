@@ -1,5 +1,4 @@
 .navbar-container {
- 
   width: 100%;
   background-color: white;
   z-index: 100;
@@ -110,7 +109,15 @@
   font-size: 14px;
   background: darkblue;
   color: white;
+  font-weight: 800;
+  transition: transform 0.2s ease;
+  cursor: pointer;
 }
+
+.nav-cart-count:hover {
+  transform: scale(1.2);
+}
+
 .nav-dorpdown-icon {
   display: none;
 }

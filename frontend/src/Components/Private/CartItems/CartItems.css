@@ -24,9 +24,12 @@
     height: 55px;
 }
 .cartitems-remove-icon{
-    width: 12px;
+    width: 22px;
     margin: 0px 30px;
     cursor: pointer;
+}
+.cartitems-remove-icon:active{
+   color: red;
 }
 .cartitems-quantity{
     width: 55px;

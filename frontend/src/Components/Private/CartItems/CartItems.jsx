@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./CartItems.css";
 import { ImCross } from "react-icons/im";
-
+import { ShopContext } from "../../../Context/ShopContext";
 
 const CartItems = () => {
+  const {AllProductData,cartItems,removeItemfromCart,getTotalCartAmount} = useContext(ShopContext)
   return (
     <div className="cartitems">
       <div className="cartitems-format-main">
@@ -14,17 +15,50 @@ const CartItems = () => {
         <p>Total</p>
         <p>Remove</p>
       </div>
-      <div>
-        <div className="cartitems-format cartitems-format-main">
-          <img src="https://i0.wp.com/thinkfirstcommunication.com/wp-content/uploads/2022/05/placeholder-1-1.png?fit=1200%2C800&ssl=1" alt="" className="carticon-product-icon" />
-          <p>name</p>
-          <p>$ 0</p>
-          <button className="cartitems-quantity">0</button>
-          <p>$ 0</p>
-          <ImCross className="cartitems-remove-icon" size={25}/>
-        </div>
-        <hr />
-      </div>
+      {AllProductData.map((item)=>{
+        /*
+         {
+      "id": 4,
+      "name": "Wooden TV Stand",
+      "category": "livingroom",
+      "image": "https://via.placeholder.com/150/FF5733/FFFFFF?text=LivingRoom4",
+      "new_price": 700,
+      "old_price": 900,
+      "description": "A sturdy wooden TV stand with ample storage space.",
+      "rating": 4.4,
+      "reviews": 27,
+      "topTrends": true,
+      "newCollections": false,
+      "relatedProducts": [1, 2, 3],
+      "tags": ["wooden", "TV stand", "storage"],
+      "details": {
+        "detailOne": "This wooden TV stand is crafted from durable hardwood, providing a sturdy base for your television. It features multiple shelves and compartments for organizing media devices, gaming consoles, and more. The natural wood finish adds a touch of warmth to any living room.",
+        "detailTwo": "The TV stand's spacious design accommodates large TVs and offers plenty of storage space without sacrificing style. It's easy to assemble and maintain, making it a practical choice for any home entertainment setup."
+      }
+    },
+        */
+        {
+          if(cartItems[item.id] > 0){
+            return (
+              <div>
+              <div className="cartitems-format cartitems-format-main">
+                <img src={item.image} alt="" className="carticon-product-icon" />
+                <p>{item.name}</p>
+                <p>$ {item.new_price}</p>
+                <button className="cartitems-quantity">{cartItems[item.id]}</button>
+                <p>$ {item.new_price * cartItems[item.id]}</p>
+                <ImCross onClick={()=>removeItemfromCart(item.id)} className="cartitems-remove-icon" />
+              </div>
+              <hr />
+            </div>
+            )
+          }
+   
+        }
+      
+      })}
+  
+   
 
       <div className="cartitems-down">
         <div className="cartitems-total">
@@ -32,7 +66,7 @@ const CartItems = () => {
           <div>
             <div className="cartitems-total-item">
               <p>Subtotal</p>
-              <p>$ 0</p>
+              <p>$ {getTotalCartAmount()}</p>
             </div>
             <hr />
             <div className="cartitems-total-item">
@@ -42,7 +76,7 @@ const CartItems = () => {
             <hr />
             <div className="cartitems-total-item">
               <h3>Total</h3>
-              <h3>$ 0</h3>
+              <h3>$ {getTotalCartAmount()}</h3>
             </div>
           </div>
           <button>PROCEED TO CHECKOUT</button>

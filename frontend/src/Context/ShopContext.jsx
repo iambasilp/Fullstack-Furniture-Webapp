@@ -7,6 +7,9 @@ export const ShopContext = createContext(null);
 const ShopContextProvider = (props) => {
   const [AllProductData, setAllProductData] = useState([]);
   const [cartItems, setCartItems] = useState({});
+  const [AddToCartSudio] = useState(new Audio("https://www.fesliyanstudios.com/play-mp3/387"));
+  const [RemoveToCartSudio] = useState(new Audio("https://www.fesliyanstudios.com/play-mp3/387"));
+
 
   useEffect(() => {
     getFetchDataFromApi().then((data) => setAllProductData(data));
@@ -31,8 +34,8 @@ const ShopContextProvider = (props) => {
   console.log(cartItems);
 
   const addToCart = (prodId) => {
-    const audio = new Audio("https://www.fesliyanstudios.com/play-mp3/387");
-    audio.play();
+    AddToCartSudio.currentTime = 0; 
+    AddToCartSudio.play();
     setCartItems((prev) => ({
       ...prev,
       [prodId]: prev[prodId] + 1,
@@ -46,8 +49,28 @@ const ShopContextProvider = (props) => {
     return total
   }
 
+  const removeItemfromCart = (prodId)=>{
+    RemoveToCartSudio.currentTime = 0; 
+    RemoveToCartSudio.play();
+      setCartItems((prev)=>{
+        return {...prev,[prodId]:prev[prodId] - 1}
+      })
+  }
+  const getTotalCartAmount = ()=>{
+    let total = 0;
+    for(let key in cartItems){
+      if(cartItems[key] > 0){
+        let info= AllProductData.find((item)=>item.id == Number(key) )
+        total = total +  cartItems[key] * info.new_price
+      }
+      
+      
+    }
+    return total
+  }
+
   return (
-    <ShopContext.Provider value={{ AllProductData, cartItems, addToCart,TotalNumberOfCartedItems }}>
+    <ShopContext.Provider value={{ AllProductData, cartItems, addToCart,TotalNumberOfCartedItems,removeItemfromCart,getTotalCartAmount }}>
       {props.children}
     </ShopContext.Provider>
   );
