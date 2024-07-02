@@ -58,11 +58,16 @@
     height: 50px;
     outline: none;
     border: none;
-    background: #ff5a5a;
+    background: darkblue;
     color: #fff;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
+    transition: all ease 0.3s;
+}
+.cartitems-total button:hover{
+    background-color: rgb(52, 52, 243);
+    transform: scale(.95);
 }
 .cartitems-promocode{
     flex: 1;

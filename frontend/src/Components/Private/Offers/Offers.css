@@ -61,8 +61,14 @@
     }
 }
 @media(max-width:1024px){
+    .offers{
+        justify-content: center;
+        text-align: center;
+        gap: 30px;
+    }
     .offers-right img{
-        width: 200px;
+        width: 400px;
+
     }
 }
 @media(max-width:800px){
