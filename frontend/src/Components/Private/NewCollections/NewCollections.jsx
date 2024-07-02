@@ -11,7 +11,7 @@ const NewCollections = () => {
       <hr />
       <div className="collections">
         {AllProductData.map((item,i)=>{
-            if(i<5 && item.newCollections===true){
+            if(item.newCollections===true){
                 return <Item key={i} id={item.id} name={item.name} image={item.image} new_price={item.new_price} old_price={item.old_price}/>
             }
             

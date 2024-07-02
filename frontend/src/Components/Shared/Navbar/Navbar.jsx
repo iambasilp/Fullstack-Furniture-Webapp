@@ -70,6 +70,14 @@ const Navbar = () => {
             <Link to="dining">Dining</Link>
             {menu === "dining" ? <hr /> : <></>}
           </li>
+          <li
+            onClick={() => {
+              setMenu("decor");
+            }}
+          >
+            <Link to="decor">Decoration</Link>
+            {menu === "decor" ? <hr /> : <></>}
+          </li>
         </ul>
         <div className="nav-login-cart">
           <Link to="/login">

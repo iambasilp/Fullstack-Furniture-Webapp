@@ -23,6 +23,7 @@ const App = () => {
             element={<ShopCategory category="bedroom" />}
           />
           <Route path="/dining" element={<ShopCategory category="dining" />} />
+          <Route path="/decor" element={<ShopCategory category="decor" />} />
           <Route path="/product" element={<Product />} />
           <Route path="/product/:productId" element={<Product />} />
           <Route path="/login" element={<LoginSignup />} />
