@@ -68,7 +68,7 @@
     border-radius: 3px;
     cursor: pointer;
 }
-.productdisplay-right button{
+/* .productdisplay-right button{
     padding: 20px 40px;
     width: 200px;
     font-size: 16px;
@@ -80,7 +80,62 @@
     outline: none;
     cursor: pointer;
     margin:30px 0px;
-}
+} */
+.button {
+    position: relative;
+    display: inline-block;
+    margin: 20px 0;
+  }
+  
+  .button a {
+    color: white;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #007BFF; /* Blue background */
+    display: block;
+    position: relative;
+    padding: 15px 30px;
+  
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-shadow: 0px 1px 0px #000;
+    filter: dropshadow(color=#000, offx=0px, offy=1px);
+  
+    -webkit-box-shadow: inset 0 1px 0 #B3D7FF, 0 10px 0 #0056b3; /* Light blue inset, darker blue shadow */
+    -moz-box-shadow: inset 0 1px 0 #B3D7FF, 0 10px 0 #0056b3;
+    box-shadow: inset 0 1px 0 #B3D7FF, 0 10px 0 #0056b3;
+  
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+  
+  .button a:active {
+    top: 10px;
+    background-color: #0056b3; /* Darker blue for active state */
+  
+    -webkit-box-shadow: inset 0 1px 0 #B3D7FF, inset 0 -3px 0 #004085; /* Adjusted colors for active state */
+    -moz-box-shadow: inset 0 1px 0 #B3D7FF, inset 0 -3px 0 #004085;
+    box-shadow: inset 0 1px 0 #B3D7FF, inset 0 -3px 0 #004085;
+  }
+  
+  .button:after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    padding: 4px;
+    position: absolute;
+    bottom: -15px;
+    left: -4px;
+    z-index: -1;
+    background-color: #03274c; /* Dark blue for shadow */
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+  
 .productdisplay-right-category{
     margin-top: 10px;
 }

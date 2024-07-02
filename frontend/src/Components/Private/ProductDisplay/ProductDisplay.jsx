@@ -2,8 +2,12 @@ import React, { useContext, useEffect } from "react";
 import "./ProductDisplay.css";
 import { BsFillStarFill, BsStar } from "react-icons/bs";
 import ScrollReveal from "scrollreveal";
+import { ShopContext } from "../../../Context/ShopContext";
 
 const ProductDisplay = ({ product }) => {
+
+  console.log(product);
+  const { addToCart } = useContext(ShopContext);
   const filledStars = Math.floor(product.rating);
   const emptyStars = 5 - filledStars;
 
@@ -33,46 +37,34 @@ const ProductDisplay = ({ product }) => {
       delay: 300,
       easing: "ease",
     });
-  }, []);
-  /*
 
-    {
-      "id": 4,
-      "name": "Wooden TV Stand",
-      "category": "livingroom",
-      "image": "https://via.placeholder.com/150/FF5733/FFFFFF?text=LivingRoom4",
-      "new_price": 700,
-      "old_price": 900,
-      "description": "A sturdy wooden TV stand with ample storage space.",
-      "rating": 4.4,
-      "reviews": 27,
-      "topTrends": true,
-      "newCollections": false,
-      "relatedProducts": [1, 2, 3],
-      "tags": ["wooden", "TV stand", "storage"],
-      "details": {
-        "detailOne": "This wooden TV stand is crafted from durable hardwood, providing a sturdy base for your television. It features multiple shelves and compartments for organizing media devices, gaming consoles, and more. The natural wood finish adds a touch of warmth to any living room.",
-        "detailTwo": "The TV stand's spacious design accommodates large TVs and offers plenty of storage space without sacrificing style. It's easy to assemble and maintain, making it a practical choice for any home entertainment setup."
-      }
-    },
-*/
+    // Initialize ScrollReveal for each image in productdisplay-img-list
+    ScrollReveal().reveal(".productdisplay-img-list img", {
+      duration: 1000,
+      origin: "bottom",
+      distance: "20px",
+      interval: 200,
+      easing: "ease",
+    });
+  }, []);
+
   return (
     <div className="productdisplay">
       <div className="productdisplay-left">
         <div className="productdisplay-img-list">
-          <img src={product.image} alt="" />
-          <img src={product.image} alt="" />
-          <img src={product.image} alt="" />
-          <img src={product.image} alt="" />
+          <img src={product.image} alt="Product Image 1" className="img-1" />
+          <img src={product.image} alt="Product Image 2" className="img-2" />
+          <img src={product.image} alt="Product Image 3" className="img-3" />
+          <img src={product.image} alt="Product Image 4" className="img-4" />
         </div>
         <div className="productdisplay-img">
-          <img className="productdisplay-main-img" src={product.image} alt="" />
+          <img className="productdisplay-main-img" src={product.image} alt="Main Product Image" />
         </div>
       </div>
       <div className="productdisplay-right">
         <h1>{product.name}</h1>
         <div className="productdisplay-right-stars">
-         {stars}
+          {stars}
           <p>({product.reviews})</p>
         </div>
         <div className="productdisplay-right-prices">
@@ -87,7 +79,11 @@ const ProductDisplay = ({ product }) => {
           {product.description}
         </div>
 
-        <button>ADD TO CART</button>
+        <div onClick={() => addToCart(product.id)}>
+          <div className="button">
+            <a href="#">ADD TO CART</a>
+          </div>
+        </div>
         <p className="productdisplay-right-category">
           <span>Category :</span> {product.category}
         </p>

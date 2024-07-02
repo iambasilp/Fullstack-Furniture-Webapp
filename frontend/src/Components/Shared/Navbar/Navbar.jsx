@@ -1,11 +1,12 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState,useContext } from "react";
 import "./Navbar.css";
 import { RiSofaLine } from "react-icons/ri";
 import { IoCartOutline } from "react-icons/io5";
 import { IoIosArrowDropdown } from "react-icons/io";
 import { Link } from "react-router-dom";
-
+import { ShopContext } from "../../../Context/ShopContext";
 const Navbar = () => {
+  const {TotalNumberOfCartedItems} = useContext(ShopContext)
   const [menu, setMenu] = useState("shop");
   const menuRef = useRef();
 
@@ -77,7 +78,7 @@ const Navbar = () => {
           <Link className="cart-icon" to="/cart">
             <IoCartOutline />
           </Link>
-          <div className="nav-cart-count">{0}</div>
+          <div className="nav-cart-count">{TotalNumberOfCartedItems()}</div>
         </div>
       </div>
     </div>
