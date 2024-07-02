@@ -5,7 +5,7 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import Item from "../../Components/Shared/Item/Item";
 
 const ShopCategory = (props) => {
-  const { all_product } = useContext(ShopContext);
+  const {AllProductData  } = useContext(ShopContext);
   return (
     <div className="shop-category">
       <div className="shopcategory-indexSort">
@@ -20,7 +20,7 @@ const ShopCategory = (props) => {
         </div>
       </div>
       <div className="shopcategory-products">
-        {all_product.map((item, i) => {
+        {AllProductData.map((item, i) => {
           if (props.category === item.category) {
             return (
               <Item

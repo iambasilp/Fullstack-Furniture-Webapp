@@ -1,15 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Popular.css'
-import {data_product} from '../../../Data/Da'
 import Item from '../../Shared/Item/Item'
+import { ShopContext } from '../../../Context/ShopContext'
 const Popular = () => {
+    const { AllProductData } = useContext(ShopContext);
+    console.log(AllProductData);
   return (
     <div className='popular'>
       <h1>TOP FURNITURE TRENDS</h1>
       <hr />
       <div className="popular-item">
-        {data_product.map((item,i)=>{
-            return <Item key={i} id={item.id} name={item.name} image={item.image} new_price={item.new_price} old_price={item.old_price}/>
+        {AllProductData.map((item,i)=>{
+            if(i<5 && item.topTrends===true){
+                return <Item key={i} id={item.id} name={item.name} image={item.image} new_price={item.new_price} old_price={item.old_price}/>
+            }
+           
         })}
       </div>
     </div>
