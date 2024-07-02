@@ -74,9 +74,9 @@ const Navbar = () => {
           <Link to="/login">
             <button>Login</button>
           </Link>
-          <div className="cart-icon">
+          <Link className="cart-icon" to="/cart">
             <IoCartOutline />
-          </div>
+          </Link>
           <div className="nav-cart-count">{0}</div>
         </div>
       </div>
