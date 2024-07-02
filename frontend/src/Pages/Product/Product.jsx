@@ -7,42 +7,35 @@ import RelatedProducts from '../../Components/Private/RelatedProducts/RelatedPro
 import { ShopContext } from '../../Context/ShopContext';
 
 const Product = () => {
-  const { productId } = useParams();
-  const { allProductData } = useContext(ShopContext);
+  const {productId} = useParams();
+  const { AllProductData } = useContext(ShopContext);
   const [productInfo, setProductInfo] = useState(null);
-  const [loading, setLoading] = useState(true);
-
+console.log(AllProductData);
   useEffect(() => {
-    const fetchProductInfo = async () => {
-      if (allProductData.length === 0) {
-        console.log("Data is still loading or not fetched yet");
-        return;
-      }
-
-      const product = allProductData.find((product) => product.id === Number(productId));
+    if (AllProductData && productId) {
+  
+      const product = AllProductData.find((item)=>{
+        return item.id === productId
+      })
       setProductInfo(product);
-      setLoading(false);
-    };
+      console.log(product);
+    }
+  }, [AllProductData, productId]);
 
-    fetchProductInfo();
-  }, [allProductData, productId]);
+  
 
-  if (loading) {
-    return <p>Loading...</p>;
+  if (!productInfo) {
+    return <div>Loading...</div>;
   }
 
   return (
     <div>
-      {productInfo ? (
-        <>
-          <Pathway product={productInfo} />
-          <ProductDisplay product={productInfo} />
-          <DescriptionBox product={productInfo} />
-          <RelatedProducts product={productInfo} />
-        </>
-      ) : (
-        <p>Product not found!</p>
-      )}
+      <>
+        <Pathway product={productInfo} />
+        <ProductDisplay product={productInfo} />
+        <DescriptionBox product={productInfo} />
+        <RelatedProducts product={productInfo} />
+      </>
     </div>
   );
 };
