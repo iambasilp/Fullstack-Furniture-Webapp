@@ -12,6 +12,8 @@ const Hero = () => {
       duration: 1000,
       delay: 300,
       easing: "ease",
+      reset: true,
+      
     });
     ScrollReveal().reveal(".hero-right", {
       origin: "right",
@@ -19,6 +21,7 @@ const Hero = () => {
       duration: 1000,
       delay: 300,
       easing: "ease",
+      reset: true,
     });
   }, []);
 
