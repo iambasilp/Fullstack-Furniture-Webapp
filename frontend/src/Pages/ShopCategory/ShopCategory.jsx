@@ -5,13 +5,20 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import Item from "../../Components/Shared/Item/Item";
 
 const ShopCategory = (props) => {
-  const {AllProductData  } = useContext(ShopContext);
+  const { AllProductData } = useContext(ShopContext);
   return (
     <div className="shop-category">
       <div className="shopcategory-indexSort">
         <p>
-          <span>Showing 1-12</span> out of 36 products
+          <span>
+            {
+              AllProductData.filter((item) => item.category === props.category)
+                .length
+            }
+          </span>{" "}
+          out of {AllProductData.length} products
         </p>
+
         <div className="shopcategory-sort">
           <p>Sort by</p>
           <div className="shopcategory-sort-icon">
