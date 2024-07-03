@@ -50,8 +50,18 @@
     font-size: 18px;
 }
 
-.hero-right img{
+.hero-right img {
     max-width: 500px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
 }
 
 @media(max-width:1200px){
