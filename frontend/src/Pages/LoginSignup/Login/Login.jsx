@@ -38,7 +38,8 @@ const Login = () => {
       alert("Login Successfully")
       localStorage.setItem('currentUser',JSON.stringify(user))
       Navigate("/")
-
+    }else{
+      alert("Invalid Email or Password")
     }
     }catch(error){
       console.log(error)
