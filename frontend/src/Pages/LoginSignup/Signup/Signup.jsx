@@ -44,7 +44,7 @@ const Signup = () => {
     if (response.ok) {
       const data = await response.json()
       localStorage.setItem('users',JSON.stringify(data))
-      Navigate('/')
+      Navigate('/login')
       alert('Sign up successful!');
     } else {
       alert('Sign up failed');
