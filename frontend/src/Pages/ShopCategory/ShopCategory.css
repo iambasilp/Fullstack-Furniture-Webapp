@@ -1,59 +1,53 @@
 .shop-category {
     margin: 50px auto;
     width: 80%; /* Adjust width as needed */
-}
-
-.shopcategory-banner {
-    display: block;
-    margin: 30px auto;
-    width: 100%; /* Adjust width as needed */
-}
-
-.shopcategory-indexSort {
+  }
+  
+  .shopcategory-indexSort {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px; /* Adjust padding as needed */
     margin-bottom: 30px;
-}
-
-.shopcategory-sort {
+  }
+  
+  .shopcategory-sort {
     padding: 10px 20px;
     border-radius: 40px;
     border: 1px solid #888;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.shopcategory-sort-icon {
+  }
+  
+  .shopcategory-sort-icon {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.shopcategory-indexSort p span {
+  }
+  
+  .shopcategory-indexSort p span {
     font-weight: 600;
-}
-
-.shopcategory-products {
+  }
+  
+  .shopcategory-products {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
     gap: 30px; /* Adjust gap as needed */
     justify-items: center; /* Center items in grid */
-}
-
-.shopcategory-products img {
+  }
+  
+  .shopcategory-products img {
     width: 100%;
     height: 300px;
     object-fit: cover;
-}
-
-.shopcategory-loadmore {
+  }
+  
+  .shopcategory-loadmore {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 50px auto; /* Adjust margin as needed */
+    margin: 50px auto;
     width: 200px;
     height: 60px;
     border-radius: 75px;
@@ -63,14 +57,19 @@
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
-}
-
-@media (max-width: 1200px) {
+  }
+  
+  .shopcategory-search {
+    margin-bottom: 20px;
+  }
+  
+  .shopcategory-search input{
+    padding: 10px 20px;
+  }
+  @media (max-width: 1200px) {
     .shopcategory-products {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust column width */
-        gap: 20px; /* Adjust gap */
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+      gap: 20px; 
     }
-}
-
-@media (max-width: 800px) {
-    .shopcategor
+  }
+  
