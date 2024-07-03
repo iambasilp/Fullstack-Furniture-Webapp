@@ -7,6 +7,7 @@ export const ShopContext = createContext(null);
 const ShopContextProvider = (props) => {
   const [AllProductData, setAllProductData] = useState([]);
   const [cartItems, setCartItems] = useState({});
+  const [AddToCartSudio] = useState(new Audio("https://www.fesliyanstudios.com/play-mp3/387"));
 
 
   useEffect(() => {
@@ -32,6 +33,8 @@ const ShopContextProvider = (props) => {
   console.log(cartItems);
 
   const addToCart = (prodId) => {
+    AddToCartSudio.currentTime = 0; 
+    AddToCartSudio.play();
 
     setCartItems((prev) => ({
       ...prev,
