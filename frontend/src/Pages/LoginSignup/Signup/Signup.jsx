@@ -1,8 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Signup.css';
 import ScrollReveal from 'scrollreveal';
 
 const Signup = () => {
+    const [name,setName] = useState("");
+    const [email,setEmail] = useState("")
+    const [password,setPassword] = useState("")
   useEffect(() => {
     // Initialize ScrollReveal
     ScrollReveal().reveal('.signup-container', {
@@ -24,17 +27,31 @@ const Signup = () => {
     });
 
   }, []);
+ const HandleSignUp = async()=>{
+    const response = await fetch('http://localhost:3000/users',{
+      method:'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body:JSON.stringify({name,email,password})
+    })
+    if (response.ok) {
+      alert('Sign up successful!');
+    } else {
+      alert('Sign up failed');
+    }
 
+ }
   return (
     <div className='signup'>
       <div className="signup-container">
         <h1>Sign Up</h1>
         <div className="signup-fields">
-          <input type="text" placeholder='Your Name' />
-          <input type="email" placeholder='Email Address' />
-          <input type="password" placeholder='Password' />
+          <input type="text" onChange={(e)=>setName(e.target.value)} placeholder='Your Name' />
+          <input type="email" onChange={(e)=>setEmail(e.target.value)} placeholder='Email Address' />
+          <input type="password" onChange={(e)=>setPassword(e.target.value)} placeholder='Password' />
         </div>
-        <button>Continue</button>
+        <button onClick={HandleSignUp}>Continue</button>
         <p className="signup-login">Already have an account? <span>Login here</span></p>
         <div className="signup-agree">
           <input type="checkbox" name='' id='' />
