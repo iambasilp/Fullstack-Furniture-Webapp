@@ -7,6 +7,7 @@ import Product from "./Pages/Product/Product";
 import Cart from "./Pages/Cart/Cart";
 import Login from "./Pages/LoginSignup/Login/Login";
 import Signup from "./Pages/LoginSignup/Signup/Signup";
+import Payment from "./Components/Private/Payment/Payment";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/cart" element={<Cart />} />
+          <Route path="payment" element={<Payment />}/>
         </Routes>
         <Footer />
       </BrowserRouter>

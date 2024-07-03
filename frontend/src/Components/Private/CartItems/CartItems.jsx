@@ -3,9 +3,15 @@ import "./CartItems.css";
 import { ImCross } from "react-icons/im";
 import { ProductContext } from "../../../Context/ProductContext";
 import { CartContext } from "../../../Context/CartContext";
+import { useNavigate } from "react-router-dom";
 const CartItems = () => {
+  const Navigate = useNavigate()
   const {cartItems,removeItemfromCart,getTotalCartAmount} = useContext(CartContext)
   const {AllProductData} = useContext(ProductContext)
+ 
+  const handleProceedToCheckout = ()=>{
+    Navigate("/payment")
+  }
   return (
     <div className="cartitems">
       <div className="cartitems-format-main">
@@ -41,7 +47,7 @@ const CartItems = () => {
         {
           if(cartItems[item.id] > 0){
             return (
-              <div>
+              <div key={item.id}>
               <div className="cartitems-format cartitems-format-main">
                 <img src={item.image} alt="" className="carticon-product-icon" />
                 <p>{item.name}</p>
@@ -80,7 +86,7 @@ const CartItems = () => {
               <h3>$ {getTotalCartAmount()}</h3>
             </div>
           </div>
-          <button>PROCEED TO CHECKOUT</button>
+          <button onClick={handleProceedToCheckout}>PROCEED TO CHECKOUT</button>
         </div>
         <div className="cartitems-promocode">
           <p>If you have a promo code, Enter it here</p>
