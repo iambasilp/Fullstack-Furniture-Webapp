@@ -1,10 +1,10 @@
 import React, { useEffect, useState, createContext, useContext } from "react";
 import { ProductContext } from "./ProductContext";
-
 export const CartContext = createContext(null);
 
 const CartContextProvider = (props) => {
   const { AllProductData } = useContext(ProductContext);
+  console.log(AllProductData);
   const [cartItems, setCartItems] = useState({});
   const [AddToCartAudio] = useState(new Audio("https://www.fesliyanstudios.com/play-mp3/387"));
 
@@ -51,7 +51,9 @@ const CartContextProvider = (props) => {
     let total = 0;
     for (let key in cartItems) {
       if (cartItems[key] > 0) {
-        let info = AllProductData.find((item) => item.id === Number(key));
+        let info = AllProductData.find((item) => item.id === key)
+        console.log(info)
+    
         if (info) {
           total += cartItems[key] * info.new_price;
         }
