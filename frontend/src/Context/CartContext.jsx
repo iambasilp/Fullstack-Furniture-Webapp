@@ -6,7 +6,7 @@ const CartContextProvider = (props) => {
   const { AllProductData } = useContext(ProductContext);
   console.log(AllProductData);
   const [cartItems, setCartItems] = useState({});
-  const [AddToCartAudio] = useState(new Audio("https://www.fesliyanstudios.com/play-mp3/387"));
+  const [CartAudio] = useState(new Audio("https://www.fesliyanstudios.com/play-mp3/387"));
 
   useEffect(() => {
     if (AllProductData.length > 0) {
@@ -23,8 +23,8 @@ const CartContextProvider = (props) => {
   };
 
   const addToCart = (prodId) => {
-    AddToCartAudio.currentTime = 0; 
-    AddToCartAudio.play();
+    CartAudio.currentTime = 0; 
+    CartAudio.play();
 
     setCartItems((prev) => ({
       ...prev,
@@ -41,6 +41,8 @@ const CartContextProvider = (props) => {
   };
 
   const removeItemfromCart = (prodId) => {
+    CartAudio.currentTime = 0; 
+    CartAudio.play();
     setCartItems((prev) => ({
       ...prev,
       [prodId]: prev[prodId] - 1,
