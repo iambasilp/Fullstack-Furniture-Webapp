@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import './LoginSignup.css';
+import './Signup.css';
 import ScrollReveal from 'scrollreveal';
 
-const LoginSignup = () => {
+const Signup = () => {
   useEffect(() => {
     // Initialize ScrollReveal
-    ScrollReveal().reveal('.loginsignup-container', {
+    ScrollReveal().reveal('.signup-container', {
       delay: 200,
       duration: 1000,
       easing: 'ease-in-out',
@@ -14,7 +14,7 @@ const LoginSignup = () => {
       interval: 150,
     });
 
-    ScrollReveal().reveal('.loginsignup-fields input, .loginsignup-fields button, .loginsignup-agree input, .loginsignup-agree p', {
+    ScrollReveal().reveal('.signup-fields input, .signup-fields button, .signup-agree input, .signup-agree p', {
       delay: 200,
       duration: 1000,
       easing: 'ease-in-out',
@@ -26,17 +26,17 @@ const LoginSignup = () => {
   }, []);
 
   return (
-    <div className='loginsignup'>
-      <div className="loginsignup-container">
+    <div className='signup'>
+      <div className="signup-container">
         <h1>Sign Up</h1>
-        <div className="loginsignup-fields">
+        <div className="signup-fields">
           <input type="text" placeholder='Your Name' />
           <input type="email" placeholder='Email Address' />
           <input type="password" placeholder='Password' />
         </div>
         <button>Continue</button>
-        <p className="loginsignup-login">Already have an account? <span>Login here</span></p>
-        <div className="loginsignup-agree">
+        <p className="signup-login">Already have an account? <span>Login here</span></p>
+        <div className="signup-agree">
           <input type="checkbox" name='' id='' />
           <p>By continuing, I agree to the terms of use & privacy policy.</p>
         </div>
@@ -45,4 +45,4 @@ const LoginSignup = () => {
   );
 };
 
-export default LoginSignup;
+export default Signup;

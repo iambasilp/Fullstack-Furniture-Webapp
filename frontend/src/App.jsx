@@ -4,8 +4,9 @@ import Shop from "./Pages/Shop/Shop";
 import Footer from "./Components/Shared/Footer/Footer";
 import ShopCategory from "./Pages/ShopCategory/ShopCategory";
 import Product from "./Pages/Product/Product";
-import LoginSignup from "./Pages/LoginSignup/LoginSignup";
 import Cart from "./Pages/Cart/Cart";
+import Login from "./Pages/LoginSignup/Login/Login";
+import Signup from "./Pages/LoginSignup/Signup/Signup";
 
 const App = () => {
   return (
@@ -26,7 +27,8 @@ const App = () => {
           <Route path="/decor" element={<ShopCategory category="decor" />} />
           <Route path="/product" element={<Product />} />
           <Route path="/product/:productId" element={<Product />} />
-          <Route path="/login" element={<LoginSignup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup/>}/>
           <Route path="/cart" element={<Cart />} />
         </Routes>
         <Footer />
