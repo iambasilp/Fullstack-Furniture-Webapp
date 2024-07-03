@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import './Login.css';
 import ScrollReveal from 'scrollreveal';
+import {Link} from 'react-router-dom'
 
 const Login = () => {
   useEffect(() => {
@@ -34,7 +35,7 @@ const Login = () => {
           <input type="password" placeholder='Password' />
         </div>
         <button>Login</button>
-        <p className="login-signup">Don't have an account? <span>Sign up here</span></p>
+        <p className="login-signup">Don't have an account? <span><Link to="/signup">Sign up here</Link></span></p>
       </div>
     </div>
   );

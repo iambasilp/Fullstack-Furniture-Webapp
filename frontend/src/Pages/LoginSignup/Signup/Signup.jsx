@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './Signup.css';
 import ScrollReveal from 'scrollreveal';
+import {Link,useNavigate} from 'react-router-dom'
+
 
 const Signup = () => {
     const [name,setName] = useState("");
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
+    const Navigate = useNavigate()
   useEffect(() => {
     // Initialize ScrollReveal
     ScrollReveal().reveal('.signup-container', {
@@ -28,6 +31,9 @@ const Signup = () => {
 
   }, []);
  const HandleSignUp = async()=>{
+  try{
+
+  
     const response = await fetch('http://localhost:3000/users',{
       method:'POST',
       headers: {
@@ -36,10 +42,16 @@ const Signup = () => {
       body:JSON.stringify({name,email,password})
     })
     if (response.ok) {
+      const data = await response.json()
+      localStorage.setItem('users',JSON.stringify(data))
+      Navigate('/')
       alert('Sign up successful!');
     } else {
       alert('Sign up failed');
     }
+  }catch(error){
+    console.log("Error",error)
+  }
 
  }
   return (
@@ -52,7 +64,7 @@ const Signup = () => {
           <input type="password" onChange={(e)=>setPassword(e.target.value)} placeholder='Password' />
         </div>
         <button onClick={HandleSignUp}>Continue</button>
-        <p className="signup-login">Already have an account? <span>Login here</span></p>
+        <p className="signup-login">Already have an account? <span><Link to="/login">Sign up here</Link></span></p>
         <div className="signup-agree">
           <input type="checkbox" name='' id='' />
           <p>By continuing, I agree to the terms of use & privacy policy.</p>
