@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import "./CartItems.css";
 import { ImCross } from "react-icons/im";
-import { ShopContext } from "../../../Context/ShopContext";
-
+import { ProductContext } from "../../../Context/ProductContext";
+import { CartContext } from "../../../Context/CartContext";
 const CartItems = () => {
-  const {AllProductData,cartItems,removeItemfromCart,getTotalCartAmount} = useContext(ShopContext)
+  const {cartItems,removeItemfromCart,getTotalCartAmount} = useContext(CartContext)
+  const {AllProductData} = useContext(ProductContext)
   return (
     <div className="cartitems">
       <div className="cartitems-format-main">

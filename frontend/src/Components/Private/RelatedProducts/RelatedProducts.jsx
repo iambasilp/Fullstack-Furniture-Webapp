@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import './RelatedProducts.css'
 import Item from '../../Shared/Item/Item'
-import { ShopContext } from '../../../Context/ShopContext'
+import { ProductContext } from '../../../Context/ProductContext'
 import ScrollReveal from 'scrollreveal'
 
 const RelatedProducts = ({product}) => {
@@ -11,7 +11,7 @@ const RelatedProducts = ({product}) => {
   })
  const [a] = elementidfromproduct
   
-const {AllProductData} = useContext(ShopContext)
+const {AllProductData} = useContext(ProductContext)
 
   useEffect(() => {
     ScrollReveal().reveal(".relatedproducts-item", {

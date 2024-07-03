@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import "./ShopCategory.css";
-import { ShopContext } from "../../Context/ShopContext";
+import { ProductContext } from "../../Context/ProductContext";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import Item from "../../Components/Shared/Item/Item";
 
 const ShopCategory = (props) => {
-  const { AllProductData } = useContext(ShopContext);
+  const { AllProductData } = useContext(ProductContext);
   return (
     <div className="shop-category">
       <div className="shopcategory-indexSort">

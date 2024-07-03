@@ -2,12 +2,11 @@ import React, { useContext, useEffect } from "react";
 import "./ProductDisplay.css";
 import { BsFillStarFill, BsStar } from "react-icons/bs";
 import ScrollReveal from "scrollreveal";
-import { ShopContext } from "../../../Context/ShopContext";
-
+import { CartContext } from "../../../Context/CartContext";
 const ProductDisplay = ({ product }) => {
 
   console.log(product);
-  const { addToCart } = useContext(ShopContext);
+  const { addToCart } = useContext(CartContext);
   const filledStars = Math.floor(product.rating);
   const emptyStars = 5 - filledStars;
 

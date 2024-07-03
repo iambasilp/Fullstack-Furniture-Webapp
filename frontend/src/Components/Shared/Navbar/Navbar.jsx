@@ -4,9 +4,9 @@ import { RiSofaLine } from "react-icons/ri";
 import { IoCartOutline } from "react-icons/io5";
 import { IoIosArrowDropdown } from "react-icons/io";
 import { Link } from "react-router-dom";
-import { ShopContext } from "../../../Context/ShopContext";
+import { CartContext } from "../../../Context/CartContext";
 const Navbar = () => {
-  const {TotalNumberOfCartedItems} = useContext(ShopContext)
+  const {TotalNumberOfCartedItems} = useContext(CartContext)
   const [menu, setMenu] = useState("shop");
   const menuRef = useRef();
 

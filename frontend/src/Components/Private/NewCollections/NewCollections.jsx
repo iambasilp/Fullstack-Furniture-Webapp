@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import './NewCollections.css'
 import Item from '../../Shared/Item/Item'
-import { ShopContext } from '../../../Context/ShopContext'
+import { ProductContext } from '../../../Context/ProductContext'
 
 const NewCollections = () => {
-    const {AllProductData} = useContext(ShopContext)
+    const {AllProductData} = useContext(ProductContext)
   return (
     <div className='new-collections'>
       <h1>NEW COLLECTIONS</h1>

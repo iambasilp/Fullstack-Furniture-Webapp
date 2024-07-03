@@ -4,11 +4,11 @@ import Pathway from '../../Components/Private/Pathway/Pathway';
 import ProductDisplay from '../../Components/Private/ProductDisplay/ProductDisplay';
 import DescriptionBox from '../../Components/Private/DescriptionBox/DescriptionBox';
 import RelatedProducts from '../../Components/Private/RelatedProducts/RelatedProducts';
-import { ShopContext } from '../../Context/ShopContext';
+import { ProductContext } from '../../Context/ProductContext';
 
 const Product = () => {
   const {productId} = useParams();
-  const { AllProductData } = useContext(ShopContext);
+  const { AllProductData } = useContext(ProductContext);
   const [productInfo, setProductInfo] = useState(null);
 console.log(AllProductData);
   useEffect(() => {

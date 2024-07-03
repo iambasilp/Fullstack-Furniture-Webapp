@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import './Popular.css'
 import Item from '../../Shared/Item/Item'
-import { ShopContext } from '../../../Context/ShopContext'
+import { ProductContext } from '../../../Context/ProductContext'
 const Popular = () => {
-    const { AllProductData } = useContext(ShopContext);
+    const { AllProductData } = useContext(ProductContext);
     console.log(AllProductData);
   return (
     <div className='popular'>
