@@ -4,9 +4,11 @@ import { ProductContext } from "../../Context/ProductContext";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import Item from "../../Components/Shared/Item/Item";
 
+
 const ShopCategory = (props) => {
   const { AllProductData } = useContext(ProductContext);
   const [searchQuery, setSearchQuery] = useState("");
+
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
@@ -15,10 +17,10 @@ const ShopCategory = (props) => {
   const filteredProducts = AllProductData.filter((item) => {
     if (props.category === item.category) {
       return item.tags.some((tag) =>
-           tag.toLowerCase().includes(searchQuery.toLowerCase())
+        tag.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
-   return false;
+    return false;
   });
 
   return (

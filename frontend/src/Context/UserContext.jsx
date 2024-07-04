@@ -25,6 +25,7 @@ const UserContextProvider = ({ children }) => {
         setCurrentUser(user)
         return {success:true,message:"Login Successfully Completed"}
       }else{
+        alert("Login Failed")
         return {success:false,message:"Login Failed"}
       }
     } catch (error) {

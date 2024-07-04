@@ -1,6 +1,8 @@
 import React, { useEffect, useState, createContext, useContext } from "react";
 import { ProductContext } from "./ProductContext";
 import CartItems from "../Components/Private/CartItems/CartItems";
+import { UserContext } from "./UserContext";
+import { useNavigate } from "react-router-dom";
 export const CartContext = createContext(null);
 
 const CartContextProvider = (props) => {
@@ -8,21 +10,18 @@ const CartContextProvider = (props) => {
   console.log(AllProductData);
   const [cartItems, setCartItems] = useState({});
   const [CartAudio] = useState(new Audio("https://www.fesliyanstudios.com/play-mp3/387"));
-
+  const {CurrentUser} = useContext(UserContext)
+  const Navigate = useNavigate()
+  
   
 
   useEffect(() => {
-    const StoredCartItems = JSON.parse(localStorage.getItem('Cartitems'))
-    if(StoredCartItems){
-       setCartItems(StoredCartItems)
-    }
-    else if (AllProductData.length > 0) {
+  
+    if (AllProductData.length > 0) {
       setCartItems(getCartDefaultValue(AllProductData));
     }
   }, [AllProductData]);
-  useEffect(()=>{
-   localStorage.setItem('Cartitems',JSON.stringify(cartItems))
-  },[cartItems])
+
 
   const getCartDefaultValue = (products) => {
     let cart = {};
@@ -33,13 +32,18 @@ const CartContextProvider = (props) => {
   };
 
   const addToCart = (prodId) => {
+
     CartAudio.currentTime = 0; 
     CartAudio.play();
+    if(CurrentUser){
+      setCartItems((prev) => ({
+        ...prev,
+        [prodId]: (prev[prodId] || 0) + 1,
+      }));
+    }else{
+      Navigate("/login")
+    }
 
-    setCartItems((prev) => ({
-      ...prev,
-      [prodId]: (prev[prodId] || 0) + 1,
-    }));
   };
 
   const TotalNumberOfCartedItems = () => {

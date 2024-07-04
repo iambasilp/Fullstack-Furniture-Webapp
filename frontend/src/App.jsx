@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Shared/Navbar/Navbar";
 import Shop from "./Pages/Shop/Shop";
 import Footer from "./Components/Shared/Footer/Footer";
@@ -12,7 +12,7 @@ import Payment from "./Components/Private/Payment/Payment";
 const App = () => {
   return (
     <div>
-      <BrowserRouter>
+
         <Navbar />
         <Routes>
           <Route path="/" element={<Shop />} />
@@ -34,7 +34,7 @@ const App = () => {
           <Route path="payment" element={<Payment />}/>
         </Routes>
         <Footer />
-      </BrowserRouter>
+
     </div>
   );
 };
