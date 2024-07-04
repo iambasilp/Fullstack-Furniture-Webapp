@@ -1,8 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './Signup.css';
 import ScrollReveal from 'scrollreveal';
+import { Link,useNavigate } from 'react-router-dom';
+import { UserContext } from '../../../Context/UserContext';
 
 const Signup = () => {
+  const {Signup} = useContext(UserContext)
+  const [name,setName] = useState("")
+  const [email,setEmail] = useState("")
+  const [password,setPassword] = useState("")
   useEffect(() => {
     // Initialize ScrollReveal
     ScrollReveal().reveal('.signup-container', {
@@ -24,18 +30,27 @@ const Signup = () => {
     });
 
   }, []);
+  const Navigate =useNavigate()
+  const handleClick = async()=>{
+    const result = await Signup(name,email,password)
+    console.log(result);
+    if(result.success){
+      alert(result.message)
+      Navigate("/login")
+    }
+  }
 
   return (
     <div className='signup'>
       <div className="signup-container">
         <h1>Sign Up</h1>
         <div className="signup-fields">
-          <input type="text" placeholder='Your Name' />
-          <input type="email" placeholder='Email Address' />
-          <input type="password" placeholder='Password' />
+          <input type="text" onChange={(e)=>setName(e.target.value)} placeholder='Your Name' />
+          <input type="email" onChange={(e)=>setEmail(e.target.value)} placeholder='Email Address' />
+          <input type="password" onChange={(e)=>setPassword(e.target.value)} placeholder='Password' />
         </div>
-        <button>Continue</button>
-        <p className="signup-login">Already have an account? <span>Login here</span></p>
+        <button onClick={handleClick}>Continue</button>
+        <p className="signup-login">Already have an account? <span><Link to="/login">Login here</Link></span></p>
         <div className="signup-agree">
           <input type="checkbox" name='' id='' />
           <p>By continuing, I agree to the terms of use & privacy policy.</p>
