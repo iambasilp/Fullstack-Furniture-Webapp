@@ -1,5 +1,6 @@
 import React, { useEffect, useState, createContext, useContext } from "react";
 import { ProductContext } from "./ProductContext";
+import CartItems from "../Components/Private/CartItems/CartItems";
 export const CartContext = createContext(null);
 
 const CartContextProvider = (props) => {
@@ -8,11 +9,20 @@ const CartContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
   const [CartAudio] = useState(new Audio("https://www.fesliyanstudios.com/play-mp3/387"));
 
+  
+
   useEffect(() => {
-    if (AllProductData.length > 0) {
+    const StoredCartItems = JSON.parse(localStorage.getItem('Cartitems'))
+    if(StoredCartItems){
+       setCartItems(StoredCartItems)
+    }
+    else if (AllProductData.length > 0) {
       setCartItems(getCartDefaultValue(AllProductData));
     }
   }, [AllProductData]);
+  useEffect(()=>{
+   localStorage.setItem('Cartitems',JSON.stringify(cartItems))
+  },[cartItems])
 
   const getCartDefaultValue = (products) => {
     let cart = {};
@@ -28,7 +38,7 @@ const CartContextProvider = (props) => {
 
     setCartItems((prev) => ({
       ...prev,
-      [prodId]: prev[prodId] + 1,
+      [prodId]: (prev[prodId] || 0) + 1,
     }));
   };
 
@@ -43,18 +53,25 @@ const CartContextProvider = (props) => {
   const removeItemfromCart = (prodId) => {
     CartAudio.currentTime = 0; 
     CartAudio.play();
-    setCartItems((prev) => ({
-      ...prev,
-      [prodId]: prev[prodId] - 1,
-    }));
+    setCartItems((prev) => {
+      const updatedCart = {
+        ...prev,
+        [prodId]: prev[prodId] - 1 > 0 ? prev[prodId] - 1 : 0,
+      };
+      if (updatedCart[prodId] === 0) {
+        delete updatedCart[prodId];
+      }
+      return updatedCart;
+    });
   };
 
   const getTotalCartAmount = () => {
     let total = 0;
     for (let key in cartItems) {
       if (cartItems[key] > 0) {
-        let info = AllProductData.find((item) => item.id === key)
-        console.log(info)
+        console.log(typeof key);
+        let info = AllProductData.find((item) => item.id === Number(key));
+            console.log(info)
     
         if (info) {
           total += cartItems[key] * info.new_price;
