@@ -850,6 +850,30 @@
       "name": "surabhi",
       "email": "surabhi@gmail.com",
       "password": "surabhi"
+    },
+    {
+      "id": "6e60",
+      "name": "user1",
+      "email": "user1@gmail.com",
+      "password": "user@123"
+    },
+    {
+      "id": "16e5",
+      "name": "User2",
+      "email": "User2@gmail.com",
+      "password": "user@123"
+    },
+    {
+      "id": "b6b3",
+      "name": "lulumall",
+      "email": "lulu@gmail.com",
+      "password": "lulu@123"
+    },
+    {
+      "id": "ac8b",
+      "name": "user3",
+      "email": "user3@gmail.com",
+      "password": "user3@gmail.com"
     }
   ]
 }

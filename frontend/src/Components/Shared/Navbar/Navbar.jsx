@@ -5,8 +5,10 @@ import { IoCartOutline } from "react-icons/io5";
 import { IoIosArrowDropdown } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../../Context/CartContext";
+import { UserContext } from "../../../Context/UserContext";
 const Navbar = () => {
   const {TotalNumberOfCartedItems} = useContext(CartContext)
+  const {CurrentUser,handleLogout} = useContext(UserContext)
   const [menu, setMenu] = useState("shop");
   const menuRef = useRef();
 
@@ -80,13 +82,17 @@ const Navbar = () => {
           </li>
         </ul>
         <div className="nav-login-cart">
-          <Link to="/login">
-            <button>Login</button>
-          </Link>
+          {CurrentUser ? <button onClick={handleLogout}>Logout</button> :   <Link to="/login">
+            <button >Login</button>
+          </Link>}
+        
+        {CurrentUser ? <>
           <Link className="cart-icon" to="/cart">
             <IoCartOutline />
           </Link>
           <div className="nav-cart-count">{TotalNumberOfCartedItems()}</div>
+        </> : ""}
+        
         </div>
       </div>
     </div>

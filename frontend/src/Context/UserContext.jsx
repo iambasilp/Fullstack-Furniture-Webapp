@@ -5,11 +5,12 @@ import { json } from "react-router-dom";
 export const UserContext = createContext(null);
 
 const UserContextProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [NewUser, setNewUser] = useState(null);
+  const [CurrentUser,setCurrentUser] = useState(null)
 
   useEffect(() => {
     const stored = localStorage.getItem('CurrentUser')
-    setUser(JSON.parse(stored))
+    setCurrentUser(JSON.parse(stored))
   }, []);
   const Login = async (email, password) => {
     try {
@@ -21,7 +22,7 @@ const UserContextProvider = ({ children }) => {
       );
       if(user){
         localStorage.setItem('CurrentUser',JSON.stringify(user))
-        setUser(user)
+        setCurrentUser(user)
         return {success:true,message:"Login Successfully Completed"}
       }else{
         return {success:false,message:"Login Failed"}
@@ -42,7 +43,7 @@ const UserContextProvider = ({ children }) => {
       if (response.ok) {
         const NewUser = await response.json();
         localStorage.setItem("NewUser", JSON.stringify(NewUser));
-        setUser(NewUser);
+        setNewUser(NewUser);
         return { success: true, message: "Sign Up SuccessFully" };
       } else {
         return { success: false, message: "Sign Up Failed" };
@@ -51,8 +52,13 @@ const UserContextProvider = ({ children }) => {
       console.log("Fetch Error", error);
     }
   };
+  const handleLogout = ()=>{
+    alert("Are you sure you need to Logout")
+    localStorage.removeItem('CurrentUser')
+    setCurrentUser(null)
+  }
   return (
-    <UserContext.Provider value={{ Signup, Login }}>
+    <UserContext.Provider value={{ Signup, Login, CurrentUser, handleLogout }}>
       {children}
     </UserContext.Provider>
   );
