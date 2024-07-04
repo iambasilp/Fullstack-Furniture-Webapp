@@ -70,7 +70,7 @@ const CartContextProvider = (props) => {
     for (let key in cartItems) {
       if (cartItems[key] > 0) {
         console.log(typeof key);
-        let info = AllProductData.find((item) => item.id === Number(key));
+        let info = AllProductData.find((item) => item.id === key);
             console.log(info)
     
         if (info) {
