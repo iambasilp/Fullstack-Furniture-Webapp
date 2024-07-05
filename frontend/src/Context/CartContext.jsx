@@ -13,7 +13,18 @@ const CartContextProvider = (props) => {
   const {CurrentUser} = useContext(UserContext)
   const Navigate = useNavigate()
   
-  
+
+  useEffect(()=>{
+   if(CurrentUser){
+      fetchCartData()
+   }
+  },[CurrentUser])
+  useEffect(()=>{
+    if(CurrentUser){
+
+      saveCardData();
+    }
+  },[CurrentUser,cartItems])
 
   useEffect(() => {
   
@@ -21,8 +32,31 @@ const CartContextProvider = (props) => {
       setCartItems(getCartDefaultValue(AllProductData));
     }
   }, [AllProductData]);
-
-
+const fetchCartData = async()=>{
+  try{ 
+    const response = await fetch(`http://localhost:3000/users/${CurrentUser.id}`)
+    const user = await response.json()
+    setCartItems(user.cart || {})
+  }catch(error){
+    console.log(error);
+  }
+}
+const saveCardData = async()=>{
+  try{
+    const response = await fetch(`http://localhost:3000/users/${CurrentUser.id}`,{
+      method:"PUT",
+      headers:{
+        'Content-Type':"application/json"
+      },
+      body:JSON.stringify({...CurrentUser,cart:cartItems})
+    })
+    if(!response.ok){
+      console.log("Error");
+    }
+  }catch(error){
+    console.log(error);
+  }
+}
   const getCartDefaultValue = (products) => {
     let cart = {};
     for (let i = 0; i < products.length; i++) {
