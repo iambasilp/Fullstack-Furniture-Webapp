@@ -26,12 +26,7 @@ const CartContextProvider = (props) => {
     }
   },[CurrentUser,cartItems])
 
-  useEffect(() => {
-  
-    if (AllProductData.length > 0) {
-      setCartItems(getCartDefaultValue(AllProductData));
-    }
-  }, [AllProductData]);
+
 const fetchCartData = async()=>{
   try{ 
     const response = await fetch(`http://localhost:3000/users/${CurrentUser.id}`)
@@ -57,22 +52,16 @@ const saveCardData = async()=>{
     console.log(error);
   }
 }
-  const getCartDefaultValue = (products) => {
-    let cart = {};
-    for (let i = 0; i < products.length; i++) {
-      cart[products[i].id] = 0; 
-    }
-    return cart;
-  };
 
   const addToCart = (prodId) => {
 
-    CartAudio.currentTime = 0; 
-    CartAudio.play();
+    
     if(CurrentUser){
+      CartAudio.currentTime = 0; 
+      CartAudio.play();
       setCartItems((prev) => ({
         ...prev,
-        [prodId]: (prev[prodId] || 0) + 1,
+        [prodId]: (prev[prodId]+1 || 1),
       }));
     }else{
       Navigate("/login")
