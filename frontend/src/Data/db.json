@@ -969,6 +969,7 @@
       "name": "user36@gmail.com",
       "email": "user36@gmail.com",
       "password": "user36@gmail.com",
+      "isAdmin": true,
       "cart": {
         "7": 3,
         "15": 2,
