@@ -70,12 +70,10 @@ const saveCardData = async()=>{
   };
 
   const TotalNumberOfCartedItems = () => {
-    let total = 0;
-    for (let key in cartItems) {
-      total += cartItems[key];
-    }
-    return total;
+    return Object.keys(cartItems).length - 1;
   };
+  
+  
 
   const removeItemfromCart = (prodId) => {
     CartAudio.currentTime = 0; 
