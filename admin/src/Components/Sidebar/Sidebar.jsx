@@ -11,13 +11,13 @@ const Sidebar = () => {
       <Link to='/listproduct' style={{ textDecoration: 'none' }}>
         <div className="sidebar-item">
         <MdFeaturedPlayList className='product-list' />
-          <p>Product List</p>
+          <p>Products</p>
         </div>
       </Link>
-      <Link to='/addproduct' style={{ textDecoration: 'none' }}>
+      <Link to='/userlist' style={{ textDecoration: 'none' }}>
         <div className="sidebar-item">
         <FaCartPlus className='product-add' />
-          <p>Add Product</p>
+          <p>Users</p>
         </div>
       </Link>
       

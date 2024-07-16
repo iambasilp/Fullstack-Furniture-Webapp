@@ -31,8 +31,8 @@
       "id": "10",
       "name": "Classic Wooden Coffee Table",
       "category": "livingroom",
-      "image": "https://img.freepik.com/free-photo/room-decor-with-potted-plants-candles-wooden-table_23-2149427996.jpg?t=st=1719940180~exp=1719943780~hmac=98dbfb0d7b0e84b8344aa8f24824128c3a058e92cd77eedf02e58237c2017599&w=740",
-      "new_price": 500,
+      "image": "https://woodsala.com/cdn/shop/files/1_8d48d5be-7221-473f-99ec-215ea51dcf68.jpg?v=1693899275",
+      "new_price": "600",
       "old_price": 700,
       "description": "A classic wooden coffee table for a timeless look.",
       "rating": 4.4,
@@ -593,6 +593,25 @@
         "detailOne": "Bring the beauty of nature indoors with these botanical framed prints. Featuring lush greenery and delicate florals, the artworks add a serene vibe to your living space. Each print is encased in a sleek frame for a polished presentation.",
         "detailTwo": "The framed prints are lightweight and easy to hang, allowing you to create a cohesive gallery wall or scatter them throughout your home. Whether displayed in a living room, kitchen, or hallway, they bring a touch of botanical charm to any room."
       }
+    },
+    {
+      "id": "e3d6",
+      "name": "anas",
+      "category": "livingroom",
+      "image": "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp",
+      "new_price": "100",
+      "old_price": "190",
+      "description": "anuanu",
+      "rating": 0,
+      "reviews": 0,
+      "topTrends": false,
+      "newCollections": false,
+      "relatedProducts": [],
+      "tags": [],
+      "details": {
+        "detailOne": "",
+        "detailTwo": ""
+      }
     }
   ],
   "users": [
@@ -837,7 +856,8 @@
       "isAdmin": true,
       "cart": {
         "7": 3,
-        "15": 2,
+        "13": 5,
+        "15": 1,
         "27": 1
       }
     },
