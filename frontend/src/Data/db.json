@@ -612,6 +612,82 @@
         "detailOne": "",
         "detailTwo": ""
       }
+    },
+    {
+      "id": "b59a",
+      "name": "Basil Pulikuth",
+      "category": "bedroom",
+      "image": "https://h5p.org/sites/default/files/h5p/content/1209180/images/file-6113d5f8845dc.jpeg",
+      "new_price": "300",
+      "old_price": "250",
+      "description": "slkdfskdfkldfdjsfl",
+      "rating": "5",
+      "reviews": "2",
+      "topTrends": true,
+      "newCollections": true,
+      "relatedProducts": [],
+      "tags": [],
+      "details": {
+        "detailOne": "helo one",
+        "detailTwo": "helo two"
+      }
+    },
+    {
+      "id": "2254",
+      "name": "sahad",
+      "category": "dining",
+      "image": "https://t3.ftcdn.net/jpg/02/99/04/20/360_F_299042079_vGBD7wIlSeNl7vOevWHiL93G4koMM967.jpg",
+      "new_price": "30",
+      "old_price": "100",
+      "description": "lsdfsdlfalsfkasl;fsladf/j",
+      "rating": "3",
+      "reviews": "3",
+      "topTrends": false,
+      "newCollections": true,
+      "relatedProducts": [],
+      "tags": [],
+      "details": {
+        "detailOne": "dsfsdfwf",
+        "detailTwo": "sdfsdf"
+      }
+    },
+    {
+      "id": "627c",
+      "name": "sabith",
+      "category": "",
+      "image": "https://images.pexels.com/photos/837358/pexels-photo-837358.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "new_price": "500",
+      "old_price": "600",
+      "description": "lksf;klsfjs;lfds",
+      "rating": "2",
+      "reviews": "2",
+      "topTrends": false,
+      "newCollections": true,
+      "relatedProducts": [],
+      "tags": [],
+      "details": {
+        "detailOne": "helo one",
+        "detailTwo": "helo two"
+      }
+    },
+    {
+      "id": "5022",
+      "name": "ashique",
+      "category": "bedroom",
+      "image": "https://m.media-amazon.com/images/M/MV5BNDgxODE2MDEzMF5BMl5BanBnXkFtZTcwOTI3ODI1OQ@@._V1_QL75_UX820_.jpg",
+      "new_price": "200",
+      "old_price": "300",
+      "description": "asdlfjklsdfjlksafaslkjlsfkslfkjlsdfjklsadf",
+      "rating": "3",
+      "reviews": "1",
+      "topTrends": true,
+      "newCollections": true,
+      "relatedProducts": [],
+      "tags": [],
+      "details": {
+        "detailOne": "one",
+        "detailTwo": "two"
+      }
     }
   ],
   "users": [
@@ -620,12 +696,6 @@
       "name": "Basil Pulikuth",
       "email": "iambasilp@gmail.com",
       "password": "sdfklsd2rwerr4r"
-    },
-    {
-      "id": "d61b",
-      "name": "Anas Panthappilakkal",
-      "email": "anaspanthappilakal@gmail.com",
-      "password": "ans pnaht pilakal @gmail.com"
     },
     {
       "id": "3080",

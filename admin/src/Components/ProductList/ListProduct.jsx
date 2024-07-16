@@ -213,53 +213,7 @@ const ListProduct = () => {
           </div>
         ))}
       </div>
-      <div className="listproduct-add-form">
-        <h2>Add New Product</h2>
-        <input
-          type="text"
-          name="name"
-          placeholder="Product Name"
-          value={newProduct.name}
-          onChange={handleNewProductInputChange}
-        />
-        <input
-          type="text"
-          name="category"
-          placeholder="Category"
-          value={newProduct.category}
-          onChange={handleNewProductInputChange}
-        />
-        <input
-          type="text"
-          name="image"
-          placeholder="Image URL"
-          value={newProduct.image}
-          onChange={handleNewProductInputChange}
-        />
-        <input
-          type="number"
-          name="old_price"
-          placeholder="Old Price"
-          value={newProduct.old_price}
-          onChange={handleNewProductInputChange}
-        />
-        <input
-          type="number"
-          name="new_price"
-          placeholder="New Price"
-          value={newProduct.new_price}
-          onChange={handleNewProductInputChange}
-        />
-        <textarea
-          name="description"
-          placeholder="Description"
-          value={newProduct.description}
-          onChange={handleNewProductInputChange}
-        ></textarea>
-        <button className="listproduct-add-btn" onClick={handleAddProduct}>
-          Add Product
-        </button>
-      </div>
+
     </div>
   );
 };
