@@ -2,6 +2,8 @@ import React from 'react'
 import './Sidebar.css'
 import { FaCartPlus } from "react-icons/fa6";
 import { MdFeaturedPlayList } from "react-icons/md";
+import { FaUserCircle } from "react-icons/fa";
+
 
 import { Link } from 'react-router-dom'
 
@@ -16,7 +18,7 @@ const Sidebar = () => {
       </Link>
       <Link to='/userlist' style={{ textDecoration: 'none' }}>
         <div className="sidebar-item">
-        <FaCartPlus className='product' />
+        <FaUserCircle className='product' />
           <p>Users</p>
         </div>
       </Link>

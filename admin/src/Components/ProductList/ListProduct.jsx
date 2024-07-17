@@ -82,41 +82,7 @@ const ListProduct = () => {
     setEditProduct({ ...editProduct, [name]: value });
   };
 
-  const handleAddProduct = async () => {
-    try {
-      const response = await fetch(`http://localhost:3000/products`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newProduct),
-      });
-      if (!response.ok) {
-        throw new Error("Failed to add product");
-      }
-      fetchInfo();
-      setNewProduct({
-        name: "",
-        category: "",
-        image: "",
-        new_price: 0,
-        old_price: 0,
-        description: "",
-        rating: 0,
-        reviews: 0,
-        topTrends: false,
-        newCollections: false,
-        relatedProducts: [],
-        tags: [],
-        details: {
-          detailOne: "",
-          detailTwo: "",
-        },
-      });
-    } catch (error) {
-      console.error("Error adding product:", error);
-    }
-  };
+
 
   const handleNewProductInputChange = (e) => {
     const { name, value } = e.target;
