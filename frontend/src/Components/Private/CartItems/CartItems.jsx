@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import "./CartItems.css";
-import { ImCross } from "react-icons/im";
+import { MdOutlineDelete } from "react-icons/md";
+
 import { ProductContext } from "../../../Context/ProductContext";
 import { CartContext } from "../../../Context/CartContext";
 import { useNavigate } from "react-router-dom";
 const CartItems = () => {
   const Navigate = useNavigate()
-  const {cartItems,removeItemfromCart,getTotalCartAmount} = useContext(CartContext)
+  const {cartItems,removeItemfromCart,getTotalCartAmount, addToCart,deletFromCartItem} = useContext(CartContext)
   const {AllProductData} = useContext(ProductContext)
  
   const handleProceedToCheckout = ()=>{
@@ -20,7 +21,7 @@ const CartItems = () => {
         <p>Price</p>
         <p>Quantity</p>
         <p>Total</p>
-        <p>Remove</p>
+        <p>Delete</p>
       </div>
       {AllProductData.map((item)=>{
         /*
@@ -52,9 +53,14 @@ const CartItems = () => {
                 <img src={item.image} alt="" className="carticon-product-icon" />
                 <p>{item.name}</p>
                 <p> ₹ {item.new_price}</p>
+                <div className="flex">
+                <button className="ar decreament"onClick={()=>removeItemfromCart(item.id)}>-</button>
                 <button className="cartitems-quantity">{cartItems[item.id]}</button>
+                <button className="ar increament" onClick={()=>{addToCart(item.id)}}>+</button>
+                </div>
+              
                 <p> ₹ {item.new_price * cartItems[item.id]}</p>
-                <ImCross onClick={()=>removeItemfromCart(item.id)} className="cartitems-remove-icon" />
+                <MdOutlineDelete size={32}  onClick={()=>deletFromCartItem(item.id)} className="cartitems-remove-icon" />
               </div>
               <hr />
             </div>

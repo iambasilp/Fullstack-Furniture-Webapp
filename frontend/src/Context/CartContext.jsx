@@ -90,6 +90,14 @@ const saveCardData = async()=>{
     });
   };
 
+  const deletFromCartItem = (id)=>{
+   setCartItems((prev)=>{
+    const deteCart = {
+      ...prev,[id]:prev[id] ? 0 : prev[id]
+    }
+    return deteCart
+   })
+  }
   const getTotalCartAmount = () => {
     let total = 0;
     for (let key in cartItems) {
@@ -107,7 +115,7 @@ const saveCardData = async()=>{
   };
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, TotalNumberOfCartedItems, removeItemfromCart, getTotalCartAmount }}>
+    <CartContext.Provider value={{ cartItems, addToCart, TotalNumberOfCartedItems, removeItemfromCart, getTotalCartAmount,deletFromCartItem }}>
       {props.children}
     </CartContext.Provider>
   );

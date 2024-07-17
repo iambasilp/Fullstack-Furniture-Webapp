@@ -5,7 +5,7 @@
       "name": "Extendable Wood Dining Table",
       "category": "dining",
       "image": "https://img.freepik.com/free-photo/view-table-arrangement-by-wedding-planner_23-2150167202.jpg?t=st=1719940117~exp=1719943717~hmac=93a65f882f68dbea8c6b74c78d87c4d5671829b17e24576a5ef25b01103104d9&w=740",
-      "new_price": 1600,
+      "new_price": "800",
       "old_price": 2000,
       "description": "An extendable wood dining table that adapts to your dining needs.",
       "rating": 4.6,
@@ -871,8 +871,8 @@
       "email": "user36@gmai.com",
       "password": "user36@gmai.com",
       "cart": {
-        "11": 2,
-        "16": 1
+        "8": 0,
+        "17": 4
       }
     }
   ]

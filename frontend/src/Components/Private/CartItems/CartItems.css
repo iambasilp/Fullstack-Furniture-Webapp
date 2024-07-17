@@ -16,12 +16,29 @@
     font-size: 16px;
     font-weight: 600;
 }
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ar{
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+    background-color: rgb(230, 225, 225);
+    transition: all ease 0.3s;
+    border: none;
+}
+.ar:hover{
+    background-color: grey;
+}
 .cartitems-format{
     font-size: 16px;
     font-weight: 500;
 }
 .carticon-product-icon{
     height: 55px;
+    
 }
 .cartitems-remove-icon{
     width: 22px;
@@ -119,8 +136,10 @@
     .carticon-product-icon{
         height: 50px;
     }
+    
     .cartitems-remove-icon{
         margin: auto;
+      
     }
     .cartitems-quantity{
         width: 40px;
