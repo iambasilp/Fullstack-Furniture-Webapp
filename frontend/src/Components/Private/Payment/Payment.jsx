@@ -1,22 +1,29 @@
 // components/payment/Payment.jsx
 import React, { useState } from "react";
 import "./Payment.css";
+import { useContext } from "react";
+import { CartContext } from "../../../Context/CartContext";
+import { useNavigate } from "react-router-dom";
 
 const Payment = () => {
+  const navigate  = useNavigate()
+  const {setCartItems} = useContext(CartContext)
   const [processing, setProcessing] = useState(false);
 
   const handlePayment = (event) => {
     event.preventDefault();
     setProcessing(true);
-
+    
     
     console.log("Processing payment...");
 
 
     setTimeout(() => {
       alert("Payment successful!");
-
+      setCartItems({})
+      navigate('/shop')
       setProcessing(false);
+
 
     }, 2000); 
   };

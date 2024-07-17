@@ -84,6 +84,7 @@
 .cart-icon {
   display: flex;
   align-items: center;
+  user-select: none;
 }
 
 .nav-login-cart button {
@@ -161,8 +162,8 @@
   padding: 10px;
   z-index: 10;
   width: 150px;
-
 }
+
 
 .profile-menu p {
   margin: 0;

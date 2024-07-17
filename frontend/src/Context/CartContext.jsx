@@ -115,7 +115,7 @@ const saveCardData = async()=>{
   };
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, TotalNumberOfCartedItems, removeItemfromCart, getTotalCartAmount,deletFromCartItem }}>
+    <CartContext.Provider value={{ cartItems,setCartItems, addToCart, TotalNumberOfCartedItems, removeItemfromCart, getTotalCartAmount,deletFromCartItem }}>
       {props.children}
     </CartContext.Provider>
   );
