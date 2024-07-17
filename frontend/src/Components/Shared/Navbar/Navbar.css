@@ -158,10 +158,11 @@
     left: 0;
   }
   .nav-menu-visible {
+    width: 100%;
     z-index: 99;
     display: flex;
     flex-direction: column;
-    height: 25vh;
+    height: 45vh;
     background-color: darkblue;
     color: white;
     top: 60px;
@@ -192,7 +193,8 @@
     font-size: 18px;
   }
   .nav-menu-visible {
-    height: 25vh;
+
+    height: 45vh;
     background-color: rgb(4, 4, 136);
     color: white;
     top: 60px;
