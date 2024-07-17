@@ -6,6 +6,7 @@ import "./UserList.css";
 const UserList = () => {
   const [allUsers, setAllUsers] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
+  const [isPending,setIsPending] = useState(false)
 
   useEffect(() => {
     fetchUsers();
@@ -69,7 +70,10 @@ const UserList = () => {
                     <div className="userlist-popup">
                       <p>Name: {user.name}</p>
                       <p>Email: {user.email}</p>
-          
+                      <p style={{ color: isPending ? "green" : "red" }}>
+  {`Order : ${isPending ? "Shipping" : "Pending"}`}
+</p>
+
                     </div>
                   )}
                 </div>
