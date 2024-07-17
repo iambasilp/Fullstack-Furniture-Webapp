@@ -3,32 +3,41 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding: 10px 50px;
-    margin: 30px;
+    padding: 20px;
+    margin: 20px;
     border-radius: 6px;
     background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-  .userlist-format-main {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 10px;
-    width: 100%;
-    padding: 20px 0px;
-    color: #454545;
-    font-size: 15px;
-    font-weight: 600;
+  .userlist h1 {
+    margin-bottom: 20px;
+    color: #333;
   }
   
-  .userlist-format {
-    width: 100%;
+  .userlist-header,
+  .userlist-content {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 10px;
-    padding: 20px 0px;
+    grid-template-columns: 2fr 2fr 1fr;
+    gap: 20px;
+    width: 100%;
+    padding: 10px 0;
     color: #454545;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .userlist-header {
+    border-bottom: 2px solid #333;
+  }
+  
+  .userlist-allusers {
+    width: 100%;
+  }
+  
+  .userlist-item {
+    padding: 10px 0;
   }
   
   .userlist-remove-icon {
@@ -42,6 +51,6 @@
   }
   
   .userlist-remove-icon:hover {
-    background-color:blue;
+    background-color: blue;
   }
   

@@ -25,7 +25,7 @@ const CartContextProvider = (props) => {
       saveCardData();
     }
   },[CurrentUser,cartItems])
-
+console.log(CurrentUser);
 
 const fetchCartData = async()=>{
   try{ 
@@ -70,7 +70,7 @@ const saveCardData = async()=>{
   };
 
   const TotalNumberOfCartedItems = () => {
-    return Object.keys(cartItems).length - 1;
+    return Object.keys(cartItems).length;
   };
   
   

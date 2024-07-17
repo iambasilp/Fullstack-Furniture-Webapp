@@ -42,7 +42,7 @@
   .product-add-btn {
     padding: 10px 20px;
     margin-top: 20px;
-    background-color: #4caf50;
+    background-color: rgb(2, 2, 128);
     color: white;
     border: none;
     border-radius: 4px;
@@ -51,6 +51,6 @@
   }
   
   .product-add-btn:hover {
-    background-color: #45a049;
+    background-color: blue;
   }
   

@@ -30,7 +30,7 @@ const Navbar = () => {
           <div className="nav-logo-img">
             <RiSofaLine />
           </div>
-          <p>FURNISH</p>
+          <p style={{letterSpacing:"1px"}}>FURNIX</p>
         </Link>
         <div>
           <IoIosArrowDropdown
