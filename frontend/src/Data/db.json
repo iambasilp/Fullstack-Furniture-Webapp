@@ -829,7 +829,10 @@
       "email": "user36@gmail.com",
       "password": "user36@gmail.com",
       "isAdmin": true,
-      "cart": {}
+      "cart": {
+        "11": 0,
+        "17": 0
+      }
     },
     {
       "id": "4e08",

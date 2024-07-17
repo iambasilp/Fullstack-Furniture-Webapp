@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
-import './UserList.css';
+import { CgMoreO } from "react-icons/cg";
+
+import "./UserList.css";
 
 const UserList = () => {
   const [allUsers, setAllUsers] = useState([]);
+  const [selectedUser, setSelectedUser] = useState(null);
 
   useEffect(() => {
     fetchUsers();
@@ -24,15 +27,23 @@ const UserList = () => {
   const removeUser = async (id) => {
     try {
       const response = await fetch(`http://localhost:3000/users/${id}`, {
-        method: 'DELETE',
+        method: "DELETE",
       });
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
-      setAllUsers(allUsers.filter(user => user.id !== id));
+      setAllUsers(allUsers.filter((user) => user.id !== id));
     } catch (error) {
       console.error("Error removing user:", error);
     }
+  };
+
+  const handleUserHover = (user) => {
+    setSelectedUser(user);
+  };
+
+  const handleUserLeave = () => {
+    setSelectedUser(null);
   };
 
   return (
@@ -46,7 +57,24 @@ const UserList = () => {
           allUsers.map((user) => (
             <div key={user.id} className="userlist-item">
               <div className="userlist-content">
-                <p>{user.name}</p>
+                <div className="flex">
+                <p >{user.name} </p>
+                <div
+                  className="userlist-view-icon"
+                  onMouseEnter={() => handleUserHover(user)}
+                  onMouseLeave={handleUserLeave}
+                >
+                 <CgMoreO className="more-icon"/>
+                  {selectedUser && selectedUser.id === user.id && (
+                    <div className="userlist-popup">
+                      <p>Name: {user.name}</p>
+                      <p>Email: {user.email}</p>
+          
+                    </div>
+                  )}
+                </div>
+                </div>
+              
                 <p>{user.email}</p>
                 <button
                   className="userlist-remove-icon"
@@ -54,6 +82,7 @@ const UserList = () => {
                 >
                   Remove
                 </button>
+      
               </div>
               <hr />
             </div>

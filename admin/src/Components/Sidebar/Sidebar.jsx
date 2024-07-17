@@ -16,18 +16,19 @@ const Sidebar = () => {
           <p>Products</p>
         </div>
       </Link>
-      <Link to='/userlist' style={{ textDecoration: 'none' }}>
-        <div className="sidebar-item">
-        <FaUserCircle className='product' />
-          <p>Users</p>
-        </div>
-      </Link>
       <Link to='/productadd' style={{ textDecoration: 'none' }}>
         <div className="sidebar-item">
         <FaCartPlus className='product' />
           <p>Product Add</p>
         </div>
       </Link>
+      <Link to='/userlist' style={{ textDecoration: 'none' }}>
+        <div className="sidebar-item">
+        <FaUserCircle className='product' />
+          <p>Users</p>
+        </div>
+      </Link>
+   
      
     </div>
   )

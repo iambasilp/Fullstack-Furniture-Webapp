@@ -1,56 +1,92 @@
 .userlist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.userlist h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.userlist-header,
+.userlist-content {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr;
+  gap: 20px;
+  width: 100%;
+  padding: 10px 0;
+  color: #454545;
+  font-size: 16px;
+  font-weight: 600;
+  border-bottom: 1px solid #eee;
+}
+
+.userlist-header {
+  border-bottom: 2px solid #333;
+}
+
+.userlist-allusers {
+  width: 100%;
+}
+
+.userlist-item {
+  padding: 10px 0;
+}
+
+.userlist-remove-icon {
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: darkblue;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.userlist-remove-icon:hover {
+  background-color: blue;
+}
+
+.userlist-view-icon {
+  position: relative;
+  display: inline-block;
+}
+
+.userlist-view-icon i {
+  cursor: pointer;
+  padding: 5px;
+  color: #555;
+}
+
+.userlist-popup {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  z-index: 10;
+  display: none;
+}
+.flex{
     display: flex;
-    flex-direction: column;
     align-items: center;
-    width: 100%;
-    padding: 20px;
-    margin: 20px;
-    border-radius: 6px;
-    background: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .userlist h1 {
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  .userlist-header,
-  .userlist-content {
-    display: grid;
-    grid-template-columns: 2fr 2fr 1fr;
-    gap: 20px;
-    width: 100%;
-    padding: 10px 0;
-    color: #454545;
-    font-size: 16px;
-    font-weight: 600;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .userlist-header {
-    border-bottom: 2px solid #333;
-  }
-  
-  .userlist-allusers {
-    width: 100%;
-  }
-  
-  .userlist-item {
-    padding: 10px 0;
-  }
-  
-  .userlist-remove-icon {
-    cursor: pointer;
-    padding: 5px 10px;
-    background-color: darkblue;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .userlist-remove-icon:hover {
-    background-color: blue;
-  }
-  
+    gap: 14px;
+}
+.more-icon{
+    transition: all ease 0.3s;
+}
+.userlist-view-icon:hover .more-icon{
+    transform: scale(1.4);
+}
+.userlist-view-icon:hover .userlist-popup {
+  display: block;
+
+}
