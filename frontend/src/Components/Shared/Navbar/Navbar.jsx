@@ -1,20 +1,28 @@
-import React, { useRef, useState,useContext } from "react";
+import React, { useRef, useState, useContext } from "react";
 import "./Navbar.css";
 import { RiSofaLine } from "react-icons/ri";
 import { IoCartOutline } from "react-icons/io5";
 import { IoIosArrowDropdown } from "react-icons/io";
+import { FaUserCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../../Context/CartContext";
 import { UserContext } from "../../../Context/UserContext";
+
 const Navbar = () => {
-  const {TotalNumberOfCartedItems} = useContext(CartContext)
-  const {CurrentUser,handleLogout} = useContext(UserContext)
+  const { TotalNumberOfCartedItems } = useContext(CartContext);
+  const { CurrentUser, handleLogout } = useContext(UserContext);
   const [menu, setMenu] = useState("shop");
   const menuRef = useRef();
+  const profileRef = useRef();
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
 
   const dropdown_toggle = (e) => {
     menuRef.current.classList.toggle("nav-menu-visible");
     e.target.classList.toggle("open");
+  };
+
+  const toggleProfileMenu = () => {
+    setIsProfileOpen(!isProfileOpen);
   };
 
   return (
@@ -30,7 +38,7 @@ const Navbar = () => {
           <div className="nav-logo-img">
             <RiSofaLine />
           </div>
-          <p style={{letterSpacing:"1px"}}>FURNIX</p>
+          <p style={{ letterSpacing: "1px" }}>FURNIX</p>
         </Link>
         <div>
           <IoIosArrowDropdown
@@ -82,17 +90,30 @@ const Navbar = () => {
           </li>
         </ul>
         <div className="nav-login-cart">
-          {CurrentUser ? <button onClick={handleLogout}>Logout</button> :   <Link to="/login">
-            <button >Login</button>
-          </Link>}
-        
-        {CurrentUser ? <>
-          <Link className="cart-icon" to="/cart">
-            <IoCartOutline />
-          </Link>
-          <div className="nav-cart-count">{TotalNumberOfCartedItems()}</div>
-        </> : ""}
-        
+          {CurrentUser ? (
+            <>
+              <div className="nav-profile">
+                <FaUserCircle
+                  className="profile-icon"
+                  onClick={toggleProfileMenu}
+                />
+                {isProfileOpen && (
+                  <div ref={profileRef} className="profile-menu">
+                    <p>{CurrentUser.name}</p>
+                    <button onClick={handleLogout}>Logout</button>
+                  </div>
+                )}
+              </div>
+              <Link className="cart-icon" to="/cart">
+                <IoCartOutline />
+              </Link>
+              <div className="nav-cart-count">{TotalNumberOfCartedItems()}</div>
+            </>
+          ) : (
+            <Link to="/login">
+              <button>Login</button>
+            </Link>
+          )}
         </div>
       </div>
     </div>
