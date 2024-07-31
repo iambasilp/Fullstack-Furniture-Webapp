@@ -5,6 +5,7 @@ import { ProductContext } from '../../../Context/ProductContext'
 const Popular = () => {
     const { AllProductData } = useContext(ProductContext);
     console.log(AllProductData);
+    console.log(AllProductData);
   return (
     <div className='popular'>
       <h1>TOP FURNITURE TRENDS</h1>
