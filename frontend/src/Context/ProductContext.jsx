@@ -1,20 +1,19 @@
-import React, { useEffect, useState, createContext } from "react";
+import React, { useState, createContext } from "react";
 import { useFetch } from "../Hooks/useFetch";
+import { db } from "../Data/db";
 
 export const ProductContext = createContext(null);
 
 const ProductContextProvider = (props) => {
-  const { data:AllProductData, isLoading, error } = useFetch('http://localhost:3010/products');
-
+  const { data: AllProductData, isLoading, error } = useFetch('http://localhost:3010/products', db.products);
 
   if (isLoading) {
     return <div>Loading...</div>;
   }
 
-  if (error) {
+  if (error && !AllProductData) {
     return <div>Error: {error.message}</div>;
   }
-
 
   return (
     <ProductContext.Provider value={{ AllProductData }}>
