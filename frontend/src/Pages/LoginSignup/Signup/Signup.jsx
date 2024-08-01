@@ -30,7 +30,7 @@ const Signup = () => {
     });
 
   }, []);
-  const Navigate =useNavigate()
+  const Navigate = useNavigate()
   const handleClick = async()=>{
     const result = await Signup(name,email,password)
     console.log(result);

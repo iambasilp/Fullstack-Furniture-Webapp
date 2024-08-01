@@ -15,7 +15,7 @@ const UserContextProvider = ({ children }) => {
   const Login = async (email, password) => {
     try {
       console.log(email, password);
-      const response = await fetch("http://localhost:3000/users");
+      const response = await fetch("http://localhost:3010/users");
       const Users = await response.json();
       const user = Users.find(
         (user) => user.email === email && user.password === password
@@ -34,7 +34,7 @@ const UserContextProvider = ({ children }) => {
   };
   const Signup = async (name, email, password) => {
     try {
-      const response = await fetch("http://localhost:3000/users", {
+      const response = await fetch("http://localhost:3010/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -19,6 +19,7 @@ const CartContextProvider = (props) => {
       fetchCartData()
    }
   },[CurrentUser])
+
   useEffect(()=>{
     if(CurrentUser){
 
@@ -53,7 +54,7 @@ const saveCardData = async()=>{
   }
 }
 
-  const addToCart = (prodId) => {
+const addToCart = (prodId) => {
 
     
     if(CurrentUser){
@@ -67,15 +68,13 @@ const saveCardData = async()=>{
       Navigate("/login")
     }
 
-  };
+};
 
-  const TotalNumberOfCartedItems = () => {
+const TotalNumberOfCartedItems = () => {
     return Object.keys(cartItems).length;
-  };
+};
   
-  
-
-  const removeItemfromCart = (prodId) => {
+const removeItemfromCart = (prodId) => {
     CartAudio.currentTime = 0; 
     CartAudio.play();
     setCartItems((prev) => {
@@ -88,17 +87,18 @@ const saveCardData = async()=>{
       }
       return updatedCart;
     });
-  };
-
-  const deletFromCartItem = (id)=>{
+};
+  
+const deletFromCartItem = (id)=>{
    setCartItems((prev)=>{
     const deteCart = {
       ...prev,[id]:prev[id] ? 0 : prev[id]
     }
     return deteCart
    })
-  }
-  const getTotalCartAmount = () => {
+}
+
+const getTotalCartAmount = () => {
     let total = 0;
     for (let key in cartItems) {
       if (cartItems[key] > 0) {
@@ -112,7 +112,7 @@ const saveCardData = async()=>{
       }
     }
     return total;
-  };
+};
 
   return (
     <CartContext.Provider value={{ cartItems,setCartItems, addToCart, TotalNumberOfCartedItems, removeItemfromCart, getTotalCartAmount,deletFromCartItem }}>
