@@ -3,14 +3,18 @@ import "./Navbar.css";
 import { RiSofaLine } from "react-icons/ri";
 import { IoCartOutline } from "react-icons/io5";
 import { IoIosArrowDropdown } from "react-icons/io";
+import { handleLogout } from "../../../Redux/Slices/UserSlice";
 import { FaUserCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../../Context/CartContext";
 import { UserContext } from "../../../Context/UserContext";
+import { useDispatch, useSelector } from "react-redux";
 
 const Navbar = () => {
-  const { TotalNumberOfCartedItems } = useContext(CartContext);
-  const { CurrentUser, handleLogout } = useContext(UserContext);
+  const disptach = useDispatch()
+  const {currentUser} = useSelector((state)=>state.users)
+
+ 
   const [menu, setMenu] = useState("shop");
   const menuRef = useRef();
   const profileRef = useRef();
@@ -90,7 +94,7 @@ const Navbar = () => {
           </li>
         </ul>
         <div className="nav-login-cart">
-          {CurrentUser ? (
+          {currentUser ? (
             <>
               <div className="nav-profile">
                 <FaUserCircle
@@ -99,15 +103,15 @@ const Navbar = () => {
                 />
                 {isProfileOpen && (
                   <div ref={profileRef} className="profile-menu">
-                    <p>{CurrentUser.name}</p>
-                    <button onClick={handleLogout}>Logout</button>
+                    <p>{currentUser.name}</p>
+                    <button onClick={()=>disptach(handleLogout())}>Logout</button>
                   </div>
                 )}
               </div>
               <Link className="cart-icon" to="/cart">
                 <IoCartOutline />
               </Link>
-              <div className="nav-cart-count">{TotalNumberOfCartedItems()}</div>
+              <div className="nav-cart-count">0</div>
             </>
           ) : (
             <Link to="/login">

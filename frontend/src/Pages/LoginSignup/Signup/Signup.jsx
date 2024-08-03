@@ -1,11 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { signupUser } from '../../../Redux/Slices/UserSlice';
+import { useDispatch, useSelector } from 'react-redux';
 import './Signup.css';
 import ScrollReveal from 'scrollreveal';
 import { Link,useNavigate } from 'react-router-dom';
 import { UserContext } from '../../../Context/UserContext';
 
 const Signup = () => {
-  const {Signup} = useContext(UserContext)
+  const disptach = useDispatch()
+  const navigate = useNavigate()
+  const { newUser, error, isLoading } = useSelector((state) => state.users);
   const [name,setName] = useState("")
   const [email,setEmail] = useState("")
   const [password,setPassword] = useState("")
@@ -30,32 +34,33 @@ const Signup = () => {
     });
 
   }, []);
-  const Navigate = useNavigate()
-  const handleClick = async()=>{
-    const result = await Signup(name,email,password)
-    console.log(result);
-    if(result.success){
-      alert(result.message)
-      Navigate("/login")
-    }
+
+
+
+  const handleSubmit = (e)=>{
+    console.log(e);
+    e.preventDefault()
+    disptach(signupUser({name,email,password}))
+    navigate('/login')
   }
 
   return (
     <div className='signup'>
-      <div className="signup-container">
+      <form className="signup-container" onSubmit={handleSubmit}>
         <h1>Sign Up</h1>
         <div className="signup-fields">
           <input type="text" onChange={(e)=>setName(e.target.value)} placeholder='Your Name' />
           <input type="email" onChange={(e)=>setEmail(e.target.value)} placeholder='Email Address' />
           <input type="password" onChange={(e)=>setPassword(e.target.value)} placeholder='Password' />
         </div>
-        <button onClick={handleClick}>Continue</button>
+        {error && <p style={{color:"red"}}>{error}</p>}
+        <button type='submit' disabled={isLoading}>Continue</button>
         <p className="signup-login">Already have an account? <span><Link to="/login">Login here</Link></span></p>
         <div className="signup-agree">
           <input type="checkbox" name='' id='' />
           <p>By continuing, I agree to the terms of use & privacy policy.</p>
         </div>
-      </div>
+      </form>
     </div>
   );
 };
