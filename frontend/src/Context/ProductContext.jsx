@@ -5,7 +5,7 @@ import { db } from "../Data/db";
 export const ProductContext = createContext(null);
 
 const ProductContextProvider = (props) => {
-  const { data: AllProductData, isLoading, error } = useFetch('http://localhost:3010/products', db.products);
+  const { data: AllProductData=["a","b"], isLoading, error } = useFetch('http://localhost:3010/products');
 
   if (isLoading) {
     return <div>Loading...</div>;

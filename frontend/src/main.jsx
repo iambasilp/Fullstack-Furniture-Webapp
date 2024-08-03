@@ -12,15 +12,15 @@ import "./index.css";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
-      <Provider store={store}>
-        <ProductContextProvider>
-          <UserContextProvider>
-            <CartContextProvider>
+      <ProductContextProvider>
+        <UserContextProvider>
+          <CartContextProvider>
+            <Provider store={store}>
               <App />
-            </CartContextProvider>
-          </UserContextProvider>
-        </ProductContextProvider>
-      </Provider>
+            </Provider>
+          </CartContextProvider>
+        </UserContextProvider>
+      </ProductContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

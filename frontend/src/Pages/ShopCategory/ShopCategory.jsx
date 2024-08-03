@@ -1,20 +1,18 @@
-import React, { useContext, useState } from "react";
+import { useState } from "react";
 import "./ShopCategory.css";
-import { ProductContext } from "../../Context/ProductContext";
-import { RiArrowDropDownLine } from "react-icons/ri";
-import Item from "../../Components/Shared/Item/Item";
 
+import Item from "../../Components/Shared/Item/Item";
+import { useSelector } from "react-redux";
 
 const ShopCategory = (props) => {
-  const { AllProductData } = useContext(ProductContext);
+  const { products = [] } = useSelector((state) => state.products);
   const [searchQuery, setSearchQuery] = useState("");
-
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
 
-  const filteredProducts = AllProductData.filter((item) => {
+  const filteredProducts = products.filter((item) => {
     if (props.category === item.category) {
       return item.tags.some((tag) =>
         tag.toLowerCase().includes(searchQuery.toLowerCase())
@@ -27,7 +25,7 @@ const ShopCategory = (props) => {
     <div className="shop-category">
       <div className="shopcategory-indexSort">
         <p>
-          <span>{filteredProducts.length}</span> out of {AllProductData.length}{" "}
+          <span>{filteredProducts.length}</span> out of {products.length}{" "}
           products
         </p>
 
