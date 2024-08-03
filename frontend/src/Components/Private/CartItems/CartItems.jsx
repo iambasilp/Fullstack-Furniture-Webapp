@@ -1,18 +1,31 @@
-import React, { useContext } from "react";
+
 import "./CartItems.css";
 import { MdOutlineDelete } from "react-icons/md";
 
-import { ProductContext } from "../../../Context/ProductContext";
-import { CartContext } from "../../../Context/CartContext";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../../Redux/Slices/CartSlice";
+
 const CartItems = () => {
-  const Navigate = useNavigate()
-  const {cartItems,removeItemfromCart,getTotalCartAmount, addToCart,deletFromCartItem} = useContext(CartContext)
-  const {AllProductData} = useContext(ProductContext)
- 
-  const handleProceedToCheckout = ()=>{
-    Navigate("/payment")
-  }
+  const disptach = useDispatch()
+  const Navigate = useNavigate();
+  const {
+    products: { products },
+    cart: { cartItems,totalAmount },
+  } = useSelector((state) => state);
+
+
+  const handleProceedToCheckout = () => {
+    Navigate("/payment");
+  };
+  const filteredProducts = products.filter((product)=>{
+    return cartItems.find((cartItem)=>cartItem?.id === product?.id)
+  })
+  
+  const getCartItemTotalPrice = (item) => {
+    const cartItem = cartItems.find((cartItem) => cartItem.id === item.id);
+    return cartItem ? cartItem.count * item.new_price : 0;
+  };
   return (
     <div className="cartitems">
       <div className="cartitems-format-main">
@@ -23,9 +36,10 @@ const CartItems = () => {
         <p>Total</p>
         <p>Delete</p>
       </div>
-      {AllProductData.map((item)=>{
-        /*
-         {
+      {/*
+
+      data to understand
+
       "id": 4,
       "name": "Wooden TV Stand",
       "category": "livingroom",
@@ -42,44 +56,55 @@ const CartItems = () => {
       "details": {
         "detailOne": "This wooden TV stand is crafted from durable hardwood, providing a sturdy base for your television. It features multiple shelves and compartments for organizing media devices, gaming consoles, and more. The natural wood finish adds a touch of warmth to any living room.",
         "detailTwo": "The TV stand's spacious design accommodates large TVs and offers plenty of storage space without sacrificing style. It's easy to assemble and maintain, making it a practical choice for any home entertainment setup."
-      }
-    },
-        */
-        {
-          if(cartItems[item.id] > 0){
-            return (
-              <div key={item.id}>
-              <div className="cartitems-format cartitems-format-main">
-                <img src={item.image} alt="" className="carticon-product-icon" />
-                <p>{item.name}</p>
-                <p> ₹ {item.new_price}</p>
-                <div className="flex">
-                <button className="ar decreament"onClick={()=>removeItemfromCart(item.id)}>-</button>
-                <button className="cartitems-quantity">{cartItems[item.id]}</button>
-                <button className="ar increament" onClick={()=>{addToCart(item.id)}}>+</button>
-                </div>
-              
-                <p> ₹ {item.new_price * cartItems[item.id]}</p>
-                <MdOutlineDelete size={32}  onClick={()=>deletFromCartItem(item.id)} className="cartitems-remove-icon" />
-              </div>
-              <hr />
-            </div>
-            )
-          }
-   
-        }
-      
-      })}
+      } */}
   
-   
+        {filteredProducts.map((item)=>{
+         const cartItem = cartItems.find((cartItem)=> cartItem.id == item.id)
 
+         
+          return (
+            <div key={item.id}>
+            <div className="cartitems-format cartitems-format-main">
+              <img src={item.image} alt="" className="carticon-product-icon" />
+              <p>{item.name}</p>
+              <p> ₹ {item.new_price}</p>
+              <div className="flex">
+                <button
+                  className="ar decreament"
+                  // onClick={() => removeItemfromCart(item.id)}
+                >
+                  -
+                </button>
+                <button className="cartitems-quantity">{cartItem.count}</button>
+                <button
+                  className="ar increament"
+                  onClick={() => {
+                    disptach(addToCart(item));
+                  }}
+                >
+                  +
+                </button>
+              </div>
+    
+              <p>{getCartItemTotalPrice(cartItem)}</p>
+              <MdOutlineDelete
+                size={32}
+                // onClick={() => deletFromCartItem(item.id)}
+                className="cartitems-remove-icon"
+              />
+            </div>
+            <hr />
+          </div>
+        )})}
+    
+      
       <div className="cartitems-down">
         <div className="cartitems-total">
           <h1>cart Totals</h1>
           <div>
             <div className="cartitems-total-item">
               <p>Subtotal</p>
-              <p>₹ {getTotalCartAmount()}</p>
+              <p>₹ {totalAmount}</p>
             </div>
             <hr />
             <div className="cartitems-total-item">
@@ -89,7 +114,7 @@ const CartItems = () => {
             <hr />
             <div className="cartitems-total-item">
               <h3>Total</h3>
-              <h3>₹ {getTotalCartAmount()}</h3>
+              <h3>₹ {totalAmount}</h3>
             </div>
           </div>
           <button onClick={handleProceedToCheckout}>PROCEED TO CHECKOUT</button>

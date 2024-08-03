@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./ShopCategory.css";
 
 import Item from "../../Components/Shared/Item/Item";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts } from "../../Redux/Slices/ProductsSlice";
 
 const ShopCategory = (props) => {
+  const disptach = useDispatch()
+  useEffect(()=>{
+    disptach(fetchProducts())
+  },[disptach])
   const { products = [] } = useSelector((state) => state.products);
   const [searchQuery, setSearchQuery] = useState("");
 

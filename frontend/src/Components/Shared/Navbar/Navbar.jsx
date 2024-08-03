@@ -6,13 +6,15 @@ import { IoIosArrowDropdown } from "react-icons/io";
 import { handleLogout } from "../../../Redux/Slices/UserSlice";
 import { FaUserCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { CartContext } from "../../../Context/CartContext";
-import { UserContext } from "../../../Context/UserContext";
+
 import { useDispatch, useSelector } from "react-redux";
 
 const Navbar = () => {
   const disptach = useDispatch()
-  const {currentUser} = useSelector((state)=>state.users)
+  const {users:{currentUser},cart:{cartItems}} = useSelector((state)=>state)
+    
+  console.log(cartItems);
+  
 
  
   const [menu, setMenu] = useState("shop");
@@ -111,7 +113,7 @@ const Navbar = () => {
               <Link className="cart-icon" to="/cart">
                 <IoCartOutline />
               </Link>
-              <div className="nav-cart-count">0</div>
+              <div className="nav-cart-count">{cartItems.length}</div>
             </>
           ) : (
             <Link to="/login">

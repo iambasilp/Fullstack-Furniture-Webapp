@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 const Popular = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchProducts('http://localhost:3010/products'));
+    dispatch(fetchProducts());
   }, [dispatch]);
   const { products } = useSelector((state) => state.products);
   console.log(products);

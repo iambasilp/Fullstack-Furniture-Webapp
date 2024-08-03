@@ -7,9 +7,9 @@ const initialState = {
   error: null,
 };
 
-export const fetchProducts = createAsyncThunk("products/fetchProducts",async (url,{ rejectWithValue })=>{
+export const fetchProducts = createAsyncThunk("products/fetchProducts",async (_,{ rejectWithValue })=>{
     try{
-        const response = await fetch(url)
+        const response = await fetch('http://localhost:3010/products')
         const data = await response.json()
         return data
     }catch(error){

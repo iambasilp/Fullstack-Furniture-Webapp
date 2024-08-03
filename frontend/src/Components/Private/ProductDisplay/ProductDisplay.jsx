@@ -1,12 +1,19 @@
 import React, { useContext, useEffect } from "react";
+import { addToCart } from "../../../Redux/Slices/CartSlice";
 import "./ProductDisplay.css";
 import { BsFillStarFill, BsStar } from "react-icons/bs";
 import ScrollReveal from "scrollreveal";
 import { CartContext } from "../../../Context/CartContext";
-const ProductDisplay = ({ product }) => {
 
-  console.log(product);
-  const { addToCart } = useContext(CartContext);
+import { useDispatch, useSelector } from "react-redux";
+const ProductDisplay = ({ product }) => {
+  
+  const {cartItems} = useSelector((state)=>state.cart)
+  console.log(cartItems);
+  
+
+  
+  const dispatch = useDispatch()
   const filledStars = Math.floor(product.rating);
   const emptyStars = 5 - filledStars;
 
@@ -78,7 +85,7 @@ const ProductDisplay = ({ product }) => {
           {product.description}
         </div>
 
-        <div onClick={() => addToCart(product.id)}>
+        <div onClick={() => dispatch(addToCart(product))}>
           <div className="button">
             <a href="#">ADD TO CART</a>
           </div>

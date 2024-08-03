@@ -884,7 +884,37 @@
       "id": "e65a",
       "name": "user400@gmail.com",
       "email": "user400@gmail.com",
-      "password": "user400@gmail.com"
+      "password": "user400@gmail.com",
+      "cart": [
+        {
+          "id": "16",
+          "name": "Modern Wooden Dresser",
+          "category": "bedroom",
+          "image": "https://img.freepik.com/free-photo/beautiful-shot-modern-wooden-furniture-isolated-white_181624-22671.jpg?t=st=1719940406~exp=1719944006~hmac=733731b648cf27745745174a0c7caa5fd080f1204ba374e7ae859851c30360ad&w=740",
+          "new_price": 950,
+          "old_price": 1200,
+          "description": "A modern wooden dresser with ample storage.",
+          "rating": 4.5,
+          "reviews": 26,
+          "topTrends": false,
+          "newCollections": true,
+          "relatedProducts": [
+            15,
+            17,
+            18
+          ],
+          "tags": [
+            "modern",
+            "wooden",
+            "dresser"
+          ],
+          "details": {
+            "detailOne": "Organize your bedroom with this modern wooden dresser. It features multiple drawers and compartments for storing clothing, accessories, and personal items. The sleek design and clean lines add a contemporary touch to your bedroom decor.",
+            "detailTwo": "Crafted from durable wood materials, the dresser offers long-lasting performance and functionality. Its spacious top surface provides additional space for decorative accents or a vanity mirror. Whether used in a master bedroom or guest room, this dresser enhances both style and storage."
+          },
+          "count": 2
+        }
+      ]
     },
     {
       "id": "efa9",
