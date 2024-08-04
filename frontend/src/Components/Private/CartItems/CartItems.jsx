@@ -108,7 +108,7 @@ const CartItems = () => {
             </div>
             <hr />
             <div className="cartitems-total-item">
-              <p>Shipping Fee</p>
+              <p>Shipping Fees</p>
               <p>Free</p>
             </div>
             <hr />
