@@ -9,7 +9,7 @@ const initialState = {
 
 export const loginUser = createAsyncThunk(
   "user/loginUser",
-  async ({ name, email, password }, { rejectWithValue }) => {
+  async ({ email, password }, { rejectWithValue }) => {
     try {
       const response = await fetch("http://localhost:3010/users");
       const users = await response.json();
