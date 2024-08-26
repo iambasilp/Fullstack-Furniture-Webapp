@@ -32,6 +32,7 @@ const UserContextProvider = ({ children }) => {
       console.log("Fetch Error", error);
     }
   };
+  // Signup 
   const Signup = async (name, email, password) => {
     try {
       const response = await fetch("http://localhost:3010/users", {
